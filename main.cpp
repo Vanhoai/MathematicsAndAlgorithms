@@ -1,5 +1,5 @@
 #include <iostream>
-#include "data_struture/array.cpp"
+#include "data_structure/vector.cpp"
 using namespace std;
 
 int main() {
