@@ -57,6 +57,22 @@ build CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o: CXX_COMPILER__DataStruc
   TARGET_COMPILE_PDB = CMakeFiles/DataStructureAlgorithms.dir/
   TARGET_PDB = DataStructureAlgorithms.pdb
 
+build CMakeFiles/DataStructureAlgorithms.dir/complex.cpp.o: CXX_COMPILER__DataStructureAlgorithms_unscanned_Debug /Users/aurorastudy/Workspace/DataStructureAlgorithms/complex.cpp || cmake_object_order_depends_target_DataStructureAlgorithms
+  DEP_FILE = CMakeFiles/DataStructureAlgorithms.dir/complex.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/DataStructureAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles/DataStructureAlgorithms.dir
+  TARGET_COMPILE_PDB = CMakeFiles/DataStructureAlgorithms.dir/
+  TARGET_PDB = DataStructureAlgorithms.pdb
+
+build CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o: CXX_COMPILER__DataStructureAlgorithms_unscanned_Debug /Users/aurorastudy/Workspace/DataStructureAlgorithms/data_struture/array.cpp || cmake_object_order_depends_target_DataStructureAlgorithms
+  DEP_FILE = CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/DataStructureAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles/DataStructureAlgorithms.dir/data_struture
+  TARGET_COMPILE_PDB = CMakeFiles/DataStructureAlgorithms.dir/
+  TARGET_PDB = DataStructureAlgorithms.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target DataStructureAlgorithms
@@ -65,7 +81,7 @@ build CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o: CXX_COMPILER__DataStruc
 #############################################
 # Link the executable DataStructureAlgorithms
 
-build DataStructureAlgorithms: CXX_EXECUTABLE_LINKER__DataStructureAlgorithms_Debug CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o
+build DataStructureAlgorithms: CXX_EXECUTABLE_LINKER__DataStructureAlgorithms_Debug CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o CMakeFiles/DataStructureAlgorithms.dir/complex.cpp.o CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk
   OBJECT_DIR = CMakeFiles/DataStructureAlgorithms.dir
   POST_BUILD = :

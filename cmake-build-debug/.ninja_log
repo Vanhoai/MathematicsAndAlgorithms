@@ -1,0 +1,10 @@
+# ninja log v6
+1	623	1729001303506809771	CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o	ffaa88ecd3b7f9e2
+1	627	1729001303507242136	CMakeFiles/DataStructureAlgorithms.dir/complex.cpp.o	ba27f31e3708389a
+1	627	1729001303507412049	CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o	8b1cb403c3db1e8d
+5	404	1729001338620333778	CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o	8b1cb403c3db1e8d
+5	416	1729001338620031035	CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o	ffaa88ecd3b7f9e2
+416	447	1729001339031345740	DataStructureAlgorithms	7de917a444b79d01
+5	372	1729001491964275731	CMakeFiles/DataStructureAlgorithms.dir/data_struture/array.cpp.o	8b1cb403c3db1e8d
+4	382	1729001491964004279	CMakeFiles/DataStructureAlgorithms.dir/main.cpp.o	ffaa88ecd3b7f9e2
+383	411	1729001492342036516	DataStructureAlgorithms	7de917a444b79d01

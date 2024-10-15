@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/aurorastudyvn/Workspace/DataStructureAlgorithms/cmake-build-debug",
-		"source" : "/Users/aurorastudyvn/Workspace/DataStructureAlgorithms"
+		"build" : "/Users/aurorastudy/Workspace/DataStructureAlgorithms/cmake-build-debug",
+		"source" : "/Users/aurorastudy/Workspace/DataStructureAlgorithms"
 	},
 	"version" : 
 	{
