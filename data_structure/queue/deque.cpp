@@ -5,16 +5,19 @@
 #include "iostream"
 using namespace std;
 
-template <class T> struct NodeQueue {
+template<class T>
+struct NodeQueue {
     T value;
     NodeQueue *next;
 };
 
-template <typename T> class Queue {
+template<typename T>
+class Queue {
+private:
     NodeQueue<T> *head;
     NodeQueue<T> *tail;
 
-        public:
+public:
     Queue() {
         head = nullptr;
         tail = nullptr;

@@ -7,10 +7,11 @@ template <class T> struct Node {
 };
 
 template <typename T> class Stack {
+private:
     Node<T> *head;
     int size;
 
-    public:
+public:
     Stack() {
         head = nullptr;
         size = 0;
