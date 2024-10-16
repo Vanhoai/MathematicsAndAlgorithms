@@ -87,17 +87,22 @@ class LinkedList {
         }
 };
 
-int main() {
-    const auto list = new LinkedList();
+int main(int argc, char** argv) {
+    // const auto list = new LinkedList();
+    //
+    // list->append(1);
+    // list->append(2);
+    // list->append(3);
+    // list->append(4);
+    // list->append(5);
+    //
+    // list->print();
+    //
+    // delete list;
 
-    list->append(1);
-    list->append(2);
-    list->append(3);
-    list->append(4);
-    list->append(5);
+    if (argc >= 2) {
+        printf("Hello, %s\n", argv[1]);
+    }
 
-    list->print();
-
-    delete list;
     return 0;
 }
