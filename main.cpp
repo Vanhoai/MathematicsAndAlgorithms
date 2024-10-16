@@ -1,108 +1,20 @@
 #include <iostream>
-#include <string>
+#include "data_structure/queue/deque.cpp"
+#include "data_structure/stack/stack.cpp"
 using namespace std;
 
-struct Node {
-    int value;
-    Node* next;
-};
-
-Node* makeNode(const int value) {
-    const auto node = new Node;
-    node->value = value;
-    node->next = nullptr;
-    return node;
-}
-
-class LinkedList {
-    Node* head;
-    Node* tail;
-    public:
-        LinkedList() {
-            head = nullptr;
-            tail = nullptr;
-        }
-
-        [[nodiscard]] bool isEmpty() const {
-            return head == nullptr;
-        }
-
-        void append(const int value) {
-            if (isEmpty()) {
-                head = makeNode(value);
-                tail = head;
-            }
-
-            tail->next = makeNode(value);
-            tail = tail->next;
-        }
-
-        void insert(const int value, const int index) {
-            if (index == 0) {
-                head = makeNode(value);
-                tail = head;
-                return;
-            }
-
-            if (index == 1) {
-                head->next = makeNode(value);
-                tail = head->next;
-                return;
-            }
-
-            auto current = head;
-            for (int i = 1; i < index; i++) {
-                current = current->next;
-            }
-
-            current->next = makeNode(value);
-            tail = current->next;
-        }
-
-        void remove(const int index) {
-            if (index == 0) {
-                head = head->next;
-                return;
-            }
-
-            auto current = head;
-            for (int i = 1; i < index; i++) {
-                current = current->next;
-            }
-
-            current->next = current->next->next;
-        }
-
-        void print() const {
-            auto current = head;
-
-            while (current != nullptr) {
-                cout << current->value;
-                current = current->next;
-
-                if (current != nullptr) {
-                    cout << " -> ";
-                }
-            }
-        }
-};
-
-int main(int argc, char** argv) {
-    // const auto list = new LinkedList();
-    //
-    // list->append(1);
-    // list->append(2);
-    // list->append(3);
-    // list->append(4);
-    // list->append(5);
-    //
-    // list->print();
-    //
-    // delete list;
-
-    if (argc >= 2) {
-        printf("Hello, %s\n", argv[1]);
-    }
-
-    return 0;
+int main() {
+   // auto* queue = new Queue<int>();
+   // queue->push(1);
+   // queue->push(2);
+   // queue->push(3);
+   // queue->push(4);
+   // queue->push(5);
+   //
+   // cout << "Front queue: " << queue->front() << endl;
+   // queue->pop();
+   // cout << "Front queue: " << queue->front() << endl;
+   //
+   // delete queue;
+   // return 0;
 }

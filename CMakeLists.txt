@@ -10,4 +10,7 @@ add_executable(DataStructureAlgorithms main.cpp
         data_structure/vector.cpp
         data_structure/array.h
         data_structure/array.cpp
+        data_structure/stack/stack.cpp
+        data_structure/linked_list/linked_list.cpp
+        data_structure/queue/deque.cpp
 )
