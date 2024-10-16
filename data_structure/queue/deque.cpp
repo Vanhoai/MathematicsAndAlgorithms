@@ -5,84 +5,83 @@
 #include "iostream"
 using namespace std;
 
-template <class T>
-struct NodeQueue {
+template <class T> struct NodeQueue {
     T value;
-    NodeQueue* next;
+    NodeQueue *next;
 };
 
-template <typename T>
-class Queue {
-    NodeQueue<T>* head;
-    NodeQueue<T>* tail;
+template <typename T> class Queue {
+    NodeQueue<T> *head;
+    NodeQueue<T> *tail;
 
-    public:
-        Queue() {
-            head = nullptr;
-            tail = nullptr;
-        }
+        public:
+    Queue() {
+        head = nullptr;
+        tail = nullptr;
+    }
 
-        ~Queue() {
-            NodeQueue<T>* current = head;
-            while (current != nullptr) {
-                const NodeQueue<T>* tmp = current;
-                current = current->next;
-                delete tmp;
-            }
-        }
-
-        NodeQueue<T>* makeNode(const T value) {
-            auto* node = new NodeQueue<T>;
-            node->value = value;
-            node->next = nullptr;
-            return node;
-        }
-
-        [[nodiscard]] bool isEmpty() const { return head == nullptr; }
-
-        void push(const T& value) {
-            if (isEmpty()) {
-                head = makeNode(value);
-                tail = head;
-                return;
-            }
-
-            tail->next = makeNode(value);
-            tail = tail->next;
-        }
-
-        T front() { return head->value; }
-
-        bool pop() {
-            if (isEmpty()) return false;
-
-            const NodeQueue<T>* tmp = head;
-            head = head->next;
+    ~Queue() {
+        NodeQueue<T> *current = head;
+        while (current != nullptr) {
+            const NodeQueue<T> *tmp = current;
+            current = current->next;
             delete tmp;
-            return true;
+        }
+    }
+
+    NodeQueue<T> *makeNode(const T value) {
+        auto *node = new NodeQueue<T>;
+        node->value = value;
+        node->next = nullptr;
+        return node;
+    }
+
+    [[nodiscard]] bool isEmpty() const { return head == nullptr; }
+
+    void push(const T &value) {
+        if (isEmpty()) {
+            head = makeNode(value);
+            tail = head;
+            return;
         }
 
-        T headQueue() const { return head->value; }
+        tail->next = makeNode(value);
+        tail = tail->next;
+    }
 
-        T tailQueue() const { return tail->value; }
+    T front() { return head->value; }
 
-        void printQueue() const {
-            cout << "Head: " << headQueue() << ", Tail: " << tailQueue() << endl;
-            NodeQueue<T>* current = head;
-            while (current != nullptr) {
-                cout << current->value;
-                current = current->next;
-                if (current != nullptr) {
-                    cout << " -> ";
-                }
+    bool pop() {
+        if (isEmpty())
+            return false;
+
+        const NodeQueue<T> *tmp = head;
+        head = head->next;
+        delete tmp;
+        return true;
+    }
+
+    T headQueue() const { return head->value; }
+
+    T tailQueue() const { return tail->value; }
+
+    void printQueue() const {
+        cout << "Head: " << headQueue() << ", Tail: " << tailQueue() << endl;
+        NodeQueue<T> *current = head;
+        while (current != nullptr) {
+            cout << current->value;
+            current = current->next;
+            if (current != nullptr) {
+                cout << " -> ";
             }
-
-            cout << endl;
         }
+
+        cout << endl;
+    }
 };
 
 int main() {
-    Queue<int>* queue = new Queue<int>();
+    Queue<int> *queue = new Queue<int>();
     queue->push(1);
     queue->push(2);
     queue->push(3);

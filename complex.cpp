@@ -12,9 +12,7 @@ Complex create_complex(const double real, const double imagine) {
     return complex;
 }
 
-double get_real(const Complex complex) {
-    return complex.real;
-}
+double get_real(const Complex complex) { return complex.real; }
 
 /**
  * Get the imagine part of a complex number.
@@ -23,9 +21,7 @@ double get_real(const Complex complex) {
  *
  * @return the imagine part of the complex number.
  */
-double get_imagine(const Complex complex) {
-    return complex.imagine;
-}
+double get_imagine(const Complex complex) { return complex.imagine; }
 
 /**
  * Add two complex numbers.
@@ -36,7 +32,8 @@ double get_imagine(const Complex complex) {
  * @return the result of addition.
  */
 Complex add_complex(const Complex complex1, const Complex complex2) {
-    const Complex complex = {complex1.real + complex2.real, complex1.imagine + complex2.imagine};
+    const Complex complex = {complex1.real + complex2.real,
+                             complex1.imagine + complex2.imagine};
     return complex;
 }
 
@@ -49,7 +46,8 @@ Complex add_complex(const Complex complex1, const Complex complex2) {
  * @return a complex number which is the result of subtraction.
  */
 Complex sub_complex(const Complex complex1, const Complex complex2) {
-    const Complex complex = {complex1.real - complex2.real, complex1.imagine - complex2.imagine};
+    const Complex complex = {complex1.real - complex2.real,
+                             complex1.imagine - complex2.imagine};
     return complex;
 }
 
@@ -62,8 +60,10 @@ Complex sub_complex(const Complex complex1, const Complex complex2) {
  * @return the result of multiplication.
  */
 Complex mul_complex(const Complex complex1, const Complex complex2) {
-    const double real = complex1.real * complex2.real - complex1.imagine * complex2.imagine;
-    const double imagine = complex1.real * complex2.imagine + complex1.imagine * complex2.real;
+    const double real =
+        complex1.real * complex2.real - complex1.imagine * complex2.imagine;
+    const double imagine =
+        complex1.real * complex2.imagine + complex1.imagine * complex2.real;
 
     const Complex complex = {real, imagine};
     return complex;
@@ -77,10 +77,12 @@ Complex mul_complex(const Complex complex1, const Complex complex2) {
  * @return The result of division.
  */
 Complex div_complex(const Complex complex1, const Complex complex2) {
-    const double real = (complex1.real * complex2.real + complex1.imagine * complex2.imagine) /
-                        (complex2.real * complex2.real + complex2.imagine * complex2.imagine);
-    const double imagine = (complex1.imagine * complex2.real - complex1.real * complex2.imagine) /
-                           (complex2.real * complex2.real + complex2.imagine * complex2.imagine);
+    const double real =
+        (complex1.real * complex2.real + complex1.imagine * complex2.imagine) /
+        (complex2.real * complex2.real + complex2.imagine * complex2.imagine);
+    const double imagine =
+        (complex1.imagine * complex2.real - complex1.real * complex2.imagine) /
+        (complex2.real * complex2.real + complex2.imagine * complex2.imagine);
     const Complex complex = {real, imagine};
     return complex;
 }
@@ -93,8 +95,6 @@ Complex div_complex(const Complex complex1, const Complex complex2) {
  * @return absolute value of the complex number.
  */
 double abs_complex(const Complex complex) {
-    return sqrt(complex.real * complex.real + complex.imagine * complex.imagine);
+    return sqrt(complex.real * complex.real +
+                complex.imagine * complex.imagine);
 }
-
-
-

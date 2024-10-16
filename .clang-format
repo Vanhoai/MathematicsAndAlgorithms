@@ -1,0 +1,12 @@
+BasedOnStyle: LLVM
+IndentWidth: 4 # Indents both members and methods by 4 spaces
+AccessModifierOffset: 0 # Indent access modifiers (public/private) by 4 spaces
+ColumnLimit: 80
+SpaceAfterCStyleCast: true
+UseTab: Never
+AllowShortIfStatementsOnASingleLine: false
+AlignTrailingComments: true
+SpacesBeforeTrailingComments: 3
+AlwaysBreakAfterReturnType: None # Keep return type on the same line as method name
+AlignConsecutiveMacros: Consecutive
+UseCRLF: false

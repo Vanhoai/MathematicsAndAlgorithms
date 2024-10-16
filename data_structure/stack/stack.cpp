@@ -1,75 +1,71 @@
 #include "iostream"
 using namespace std;
 
-template<class T>
-struct Node {
+template <class T> struct Node {
     T value;
-    Node* next;
+    Node *next;
 };
 
-template <typename T>
-class Stack {
+template <typename T> class Stack {
     Node<T> *head;
     int size;
+
     public:
-        Stack() {
-            head = nullptr;
-            size = 0;
-        }
+    Stack() {
+        head = nullptr;
+        size = 0;
+    }
 
-        ~Stack() {
-            Node<T> *current = head;
-            while (current != nullptr) {
-                const Node<T> *tmp = current;
-                current = current->next;
-                delete tmp;
-            }
-
-            head = nullptr;
-            size = 0;
-        }
-
-        Node<T>* makeNode(const T value) {
-            Node<T>* node = new Node<T>;
-            node->value = value;
-            node->next = nullptr;
-            return node;
-        }
-
-        [[nodiscard]] bool isEmpty() const {
-            return head == nullptr;
-        }
-
-        void push(const T &value) {
-            if (isEmpty()) {
-                head = makeNode(value);
-                return;
-            }
-
-            Node<T> *newNode = makeNode(value);
-            newNode->next = head;
-            head = newNode;
-        }
-
-        T top() {
-            return head->value;
-        }
-
-        bool pop() {
-            if (isEmpty()) return false;
-            const Node<T> *tmp = head;
-            head = head->next;
+    ~Stack() {
+        Node<T> *current = head;
+        while (current != nullptr) {
+            const Node<T> *tmp = current;
+            current = current->next;
             delete tmp;
-            return true;
         }
 
-        T popped() {
-            const Node<T> *tmp = head;
-            T value = head->value;
-            head = head->next;
-            delete tmp;
-            return value;
+        head = nullptr;
+        size = 0;
+    }
+
+    Node<T> *makeNode(const T value) {
+        Node<T> *node = new Node<T>;
+        node->value = value;
+        node->next = nullptr;
+        return node;
+    }
+
+    [[nodiscard]] bool isEmpty() const { return head == nullptr; }
+
+    void push(const T &value) {
+        if (isEmpty()) {
+            head = makeNode(value);
+            return;
         }
+
+        Node<T> *newNode = makeNode(value);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    T top() { return head->value; }
+
+    bool pop() {
+        if (isEmpty())
+            return false;
+        const Node<T> *tmp = head;
+        head = head->next;
+        delete tmp;
+        return true;
+    }
+
+    T popped() {
+        const Node<T> *tmp = head;
+        T value = head->value;
+        head = head->next;
+        delete tmp;
+        return value;
+    }
 };
 
 struct Student {
@@ -86,7 +82,7 @@ Student makeStudent(const string &name, const double score) {
 
 int main() {
 
-    Stack<Student>* s = new Stack<Student>();
+    Stack<Student> *s = new Stack<Student>();
 
     const Student s1 = makeStudent("Alice", 88.6);
     const Student s2 = makeStudent("Bob", 92.4);
