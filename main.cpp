@@ -1,21 +1,19 @@
 #include <iostream>
-#include "data_structure/vector.cpp"
+#include <string>
 using namespace std;
 
 int main() {
-    Vector<int> vec;
 
-    vec.push_back(10);
-    vec.push_back(20);
-    vec.push_back(30);
-    vec.push_back(40);
-    vec.push_back(50);
+    int a = 20;
+    int* ptr = new int;
 
-    vec.insert(60, 2);
+    ptr = &a;
 
-    for (size_t i = 0; i < vec.size(); ++i) {
-        std::cout << vec[i] << " ";
-    }
-    std::cout << std::endl;
+    a = 40;
+
+    cout << "a: " << a << endl;
+    cout << "ptr: " << ptr << endl; // print address of a
+    cout << "*ptr: " << *ptr << endl; // print value of a
+
     return 0;
 }
