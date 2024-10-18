@@ -1,4 +1,12 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int main() { return 0; }
+int n, m;
+vector<int> adj[1001];
+bool visited[1001];
+
+int main() {
+    count << "Hello, World!" << endl;
+    return 0;
+}
