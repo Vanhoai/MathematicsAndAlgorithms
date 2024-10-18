@@ -6,10 +6,9 @@
 #include <iostream>
 #include <stdexcept>
 
-template<typename T>
-class Vector {
+template <typename T> class Vector {
 private:
-    T* arr;
+    T *arr;
     size_t capacity;
     size_t length;
 
@@ -20,33 +19,27 @@ public:
         arr = new T[capacity];
     }
 
-    ~Vector() {
-        delete[] arr;
-    }
+    ~Vector() { delete[] arr; }
 
-    [[nodiscard]] size_t size() const {
-        return length;
-    }
+    [[nodiscard]] size_t size() const { return length; }
 
-    [[nodiscard]] bool empty() const {
-        return length == 0;
-    }
+    [[nodiscard]] bool empty() const { return length == 0; }
 
-    T& operator[](size_t index) {
+    T &operator[](size_t index) {
         if (index >= length) {
             throw std::out_of_range("Index out of range");
         }
         return arr[index];
     }
 
-    const T& operator[](size_t index) const {
+    const T &operator[](size_t index) const {
         if (index >= length) {
             throw std::out_of_range("Index out of range");
         }
         return arr[index];
     }
 
-    void push_back(const T& value) {
+    void push_back(const T &value) {
         if (length == capacity) {
         }
         arr[length++] = value;
@@ -58,7 +51,7 @@ public:
         }
     }
 
-    void insert(const T& value, size_t index) {
+    void insert(const T &value, size_t index) {
         if (index > length) {
             throw std::out_of_range("Index out of range");
         }
@@ -85,7 +78,7 @@ public:
 private:
     void resize() {
         capacity *= 2;
-        T* newArr = new T[capacity];
+        T *newArr = new T[capacity];
         for (size_t i = 0; i < length; ++i) {
             newArr[i] = arr[i];
         }

@@ -7,10 +7,10 @@
 #include <stdexcept>
 
 template <typename T> class Array {
-  private:
+private:
     static constexpr int MAX_SIZE = 1001;
 
-  public:
+public:
     T data[MAX_SIZE];
     int size;
     int index;
