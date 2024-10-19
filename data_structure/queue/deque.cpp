@@ -81,7 +81,7 @@ public:
     }
 };
 
-int main() {
+int main_queue() {
     Queue<int> *queue = new Queue<int>();
     queue->push(1);
     queue->push(2);

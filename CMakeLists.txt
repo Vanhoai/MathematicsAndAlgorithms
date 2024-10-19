@@ -13,4 +13,6 @@ add_executable(DataStructureAlgorithms main.cpp
         data_structure/stack/stack.cpp
         data_structure/linked_list/linked_list.cpp
         data_structure/queue/deque.cpp
+        data_structure/tree/binary_tree.cpp
+        data_structure/tree/segment_tree.cpp
 )

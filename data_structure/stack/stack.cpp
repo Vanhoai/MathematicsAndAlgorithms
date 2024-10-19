@@ -81,7 +81,7 @@ Student makeStudent(const string &name, const double score) {
     return student;
 }
 
-int main() {
+int main_stack() {
 
     Stack<Student> *s = new Stack<Student>();
 
