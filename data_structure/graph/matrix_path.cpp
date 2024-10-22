@@ -26,35 +26,38 @@ void input() {
 }
 
 bool dfs(int i, int j) {
-    if (a[i][j] == 'A') return true;
+    if (a[i][j] == 'A')
+        return true;
     a[i][j] = 'x';
     for (int k = 0; k < 4; k++) {
         int x = i + dx[k];
         int y = j + dy[k];
         if (a[x][y] != 'x' && x >= 1 && x <= n && y >= 1 && y <= m) {
-            if (dfs(x, y)) return true;
+            if (dfs(x, y))
+                return true;
         }
     }
 
     return false;
 }
 
-void bfs(int i, int j) {
-    queue<pair<int, int> > q;
+void bfs(const int i, const int j) {
+    queue<pair<int, int>> q;
     q.push(make_pair(i, j));
     a[i][j] = 'x';
     step[i][j] = 0;
     while (!q.empty()) {
         pair<int, int> front = q.front();
-        int i = front.first;
-        int j = front.second;
+        const int i = front.first;
+        const int j = front.second;
         q.pop();
         for (int k = 0; k < 4; k++) {
             int i1 = i + dx[k];
             int j1 = j + dy[k];
             if (a[i1][j1] != 'x' && i1 >= 1 && i1 <= n && j1 >= 1 && j1 <= m) {
                 step[i1][j1] = step[i][j] + 1;
-                if (a[i1][j1] == 'A') return;
+                if (a[i1][j1] == 'A')
+                    return;
                 a[i1][j1] = 'x';
                 q.push(make_pair(i1, j1));
             }
@@ -81,7 +84,7 @@ int main() {
 
     if (step[x][y] == 0) {
         cout << "No path" << endl;
-    } else { 
+    } else {
         cout << step[x][y] << endl;
     }
 
