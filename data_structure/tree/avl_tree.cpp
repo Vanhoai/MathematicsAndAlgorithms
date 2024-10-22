@@ -57,17 +57,15 @@ public:
     }
 
     TreeNode *insertNode(TreeNode *node, int value) {
-        if (node == nullptr) {
+        if (node == nullptr)
             return new TreeNode(value);
-        }
 
-        if (value < node->value) {
+        if (value < node->value)
             node->left = insertNode(node->left, value);
-        } else if (value > node->value) {
+        else if (value > node->value)
             node->right = insertNode(node->right, value);
-        } else {
+        else
             return node;
-        }
 
         node->height = 1 + max(height(node->left), height(node->right));
         int balanceFactor = getBalanceFactor(node);
