@@ -7,7 +7,7 @@ struct TreeNode {
     TreeNode *left;
     TreeNode *right;
 
-    TreeNode(int value)
+    explicit TreeNode(int value)
         : value(value), left(nullptr), right(nullptr), height(1) {
         cout << "TreeNode(" << value << ")" << endl;
     }
