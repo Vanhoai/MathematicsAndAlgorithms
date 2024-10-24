@@ -3,8 +3,7 @@ project(DataStructureAlgorithms)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(
-        DataStructureAlgorithms main.cpp
+add_executable(DataStructureAlgorithms main.cpp
         complex.h
         complex.cpp
         data_structure/vector.h
@@ -17,5 +16,4 @@ add_executable(
         data_structure/tree/binary_tree.cpp
         data_structure/tree/segment_tree.cpp
         data_structure/tree/avl_tree.cpp
-        data_structure/tree/trie.cpp
 )
