@@ -57,68 +57,66 @@ typedef vector<pi> vii;             // Alias for vector of pairs
 // Functions
 int gcd(int a, int b) { if (b == 0) return a; return gcd(b, a % b); }
 
-const int N = 1001;
+
+struct Edge {
+    int u, v, w;
+};
+
 int n, m;
-vi adj[N];
-bool visited[N];
+vii adj[1001];
+bool used[1001];
+int parent[1001], d[1001];
 
 void input() {
     cin >> n >> m;
     REP(i, m) {
-        int x, y; cin >> x >> y;
-        adj[x].PB(y);
-        adj[y].PB(x);
+        int x, y, z;
+        cin >> x >> y >> z;
+        adj[x].PB(MP(y, z));
+        adj[y].PB(MP(x, z));
     }
 
-    MEMSET(visited, false);
+    MEMSET(used, false);
+    FOR(i, 1, n) d[i] = INT_MAX;
 }
 
-void dfs(int u) {
-    visited[u] = true;
-    REP(i, SZ(adj[u])) {
-        if (!visited[adj[u][i]]) {
-            dfs(adj[u][i]);
+void prim(int u) {
+    vector<Edge> MST;
+    priority_queue<pi, vii, greater<pi> > Q;
+
+    int res = 0;
+    Q.push(MP(0, u));
+
+    while (!Q.empty()) {
+        pi top = Q.top(); Q.pop();
+        int x = top.S;
+        int wX = top.F;
+
+        if (used[x]) continue;
+        
+        res += wX;
+        used[x] = true;
+        if (u != x) {
+            Edge edge = {x, parent[x], wX};
+            MST.PB(edge);
         }
-    }
-}
 
-void solve() {
-    int connected = 0;
-    FOR(i, 1, n) {
-        if (!visited[i]) {
-            connected++;
-            dfs(i);
-        }
-    }
+        REP(i, adj[x].size()) {
+            int y = adj[x][i].F;
+            int w = adj[x][i].S;
 
-    MEMSET(visited, false);
-
-    int ans = 0;
-    vi res;
-
-    FOR(i, 1, n) {
-        int count = 0;
-        visited[i] = true;
-        FOR(k, 1, n) {
-            if (!visited[k]) {
-                count++;
-                dfs(k);
+            if (!used[y] && w < d[y]) {
+                d[y] = w;
+                parent[y] = x;
+                Q.push(MP(w, y));
             }
         }
-
-        if (count > connected) {
-            ans += 1;
-            res.PB(i);
-        }
-
-        MEMSET(visited, false);
     }
 
-    cout << "Ans: " << ans << endl;
-    REP(i, SZ(res)) {
-        cout << res[i] << " ";
+    cout << "Res: " << res << endl;
+    REP(i, MST.size()) {
+        cout << MST[i].u << " " << MST[i].v << " " << MST[i].w << endl;
     }
-
 }
 
 int main() {
@@ -129,7 +127,7 @@ int main() {
     #endif
 
     input();
-    solve();
-  
+    prim(1);
+
     return 0;
 }

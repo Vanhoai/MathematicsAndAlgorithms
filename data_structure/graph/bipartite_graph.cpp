@@ -57,69 +57,58 @@ typedef vector<pi> vii;             // Alias for vector of pairs
 // Functions
 int gcd(int a, int b) { if (b == 0) return a; return gcd(b, a % b); }
 
+
 const int N = 1001;
 int n, m;
 vi adj[N];
-bool visited[N];
+int color[N]; // 0 = red, 1 = blue
 
 void input() {
     cin >> n >> m;
     REP(i, m) {
-        int x, y; cin >> x >> y;
+        int x, y;
+        cin >> x >> y;
         adj[x].PB(y);
         adj[y].PB(x);
     }
 
-    MEMSET(visited, false);
+    MEMSET(color, -1);
 }
 
-void dfs(int u) {
-    visited[u] = true;
-    REP(i, SZ(adj[u])) {
-        if (!visited[adj[u][i]]) {
-            dfs(adj[u][i]);
-        }
-    }
-}
-
-void solve() {
-    int connected = 0;
-    FOR(i, 1, n) {
-        if (!visited[i]) {
-            connected++;
-            dfs(i);
-        }
-    }
-
-    MEMSET(visited, false);
-
-    int ans = 0;
-    vi res;
-
-    FOR(i, 1, n) {
-        int count = 0;
-        visited[i] = true;
-        FOR(k, 1, n) {
-            if (!visited[k]) {
-                count++;
-                dfs(k);
+bool bfs(int u) {
+    queue<int> Q;
+    Q.push(u);
+    color[u] = 0;
+    while (!Q.empty()) {
+        int x = Q.front(); Q.pop();
+        REP(i, adj[x].size()) {
+            int v = adj[x][i];
+            if (color[v] == -1) {
+                color[v] = 1 - color[x];
+                Q.push(v);
+            } else if (color[v] == color[x]) {
+                return false;
             }
         }
-
-        if (count > connected) {
-            ans += 1;
-            res.PB(i);
-        }
-
-        MEMSET(visited, false);
     }
 
-    cout << "Ans: " << ans << endl;
-    REP(i, SZ(res)) {
-        cout << res[i] << " ";
-    }
-
+    return true;
 }
+
+bool dfs(int u, int p) {
+    color[u] = 1 - color[p];
+    REP(i, adj[i].size()) {
+        int v = adj[u][i];
+        if (color[v] == -1) {
+            if (!dfs(v, u))
+                return false;
+        } else if (color[v] == color[u]) {
+            return false;
+        }
+    }
+
+    return true;
+ }
 
 int main() {
     FAST_IO;
@@ -129,7 +118,18 @@ int main() {
     #endif
 
     input();
-    solve();
+    bool check = true;
+    FOR(i, 1, n) {
+        if (color[i] == -1) {
+            if (!dfs(i, 0)) {
+                check = false;
+                break;
+            }
+        }
+    }
+
+    if (check) cout << "YES" << endl;
+    else cout << "NO" << endl;
   
     return 0;
 }
