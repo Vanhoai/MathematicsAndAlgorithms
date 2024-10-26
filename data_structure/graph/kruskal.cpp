@@ -1,5 +1,7 @@
 #include <iostream>
+#include <map>
 #include <vector>
+#include <stack>
 using namespace std;
 
 struct Edge {
@@ -8,81 +10,80 @@ struct Edge {
 };
 
 int n, m;
-int parent[1001];
-int sz[1001];
 vector<Edge> edges;
+int parent[1001];
+int size[1001];
 
-void makeSet() {
+void make_set() {
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
-        sz[i] = 1;
+        size[i] = 1;
     }
 }
 
-int find(int v) {
-    if (v == parent[v])
-        return v;
-    return parent[v] = find(parent[v]);
+int find(int u) {
+    if (u == parent[u]) return u;
+    return parent[u] = find(parent[u]);
 }
 
-bool Union(int u, int v) {
-    u = find(u);
-    v = find(v);
+bool Union(int a, int b) {
+    a = find(a);
+    b = find(b);
+    if (a == b) return false;
 
-    if (u == v)
-        return false;
-
-    if (sz[u] < sz[v])
-        swap(u, v);
-
-    parent[v] = u;
-    sz[u] += sz[v];
+    if (size[a] < size[b]) swap(a, b);
+    parent[b] = a;
+    size[a] += size[b];
     return true;
 }
 
 void input() {
     cin >> n >> m;
     for (int i = 0; i < m; i++) {
-        int x, y, w;
-        cin >> x >> y >> w;
-        Edge e = {x, y, w};
-        edges.push_back(e);
+        int x, y, z;
+        cin >> x >> y >> z;
+        Edge edge = {x, y, z};
+        edges.push_back(edge);
     }
 }
 
-bool comparator(Edge a, Edge b) { return a.w < b.w; }
+bool comparator(Edge a, Edge b) {
+    return a.w < b.w;
+}
 
-void kruskal() {
-    vector<Edge> mst;
-    int cost = 0;
+void solve() {
     sort(edges.begin(), edges.end(), comparator);
 
-    for (Edge e : edges) {
+    vector<Edge> mst;
+
+    int size = edges.size();
+    for (int i = 0; i < size; i++) {
+        Edge e = edges[i];
         if (Union(e.u, e.v)) {
             mst.push_back(e);
-            cost += e.w;
         }
     }
 
-    cout << "Cost: " << cost << " Size: " << mst.size() << endl;
-    for (Edge e : mst) {
-        cout << e.u << " " << e.v << endl;
+    int length = mst.size();
+    int cost = 0;
+    for (int i = 0; i < length; i++) {
+        cost += mst[i].w;
     }
+
+    cout << "Cost: " << cost << " Size: " << mst.size() << endl;
 }
 
-// 6 8
-// 1 2 1
-// 3 7 1
-// 6 7 1
-// 2 3 2
-// 5 6 2
-// 4 5 3
-// 1 3 4
-// 3 4 10
-
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    #ifndef ONLINE_JUDGE
+        freopen("./in.txt", "r", stdin);
+        freopen("./out.txt", "w", stdout);
+    #endif
+
     input();
-    makeSet();
-    kruskal();
+    make_set();
+    solve();
+    
     return 0;
 }
