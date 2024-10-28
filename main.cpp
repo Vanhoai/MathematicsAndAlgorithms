@@ -2,77 +2,39 @@
 #include "libraries.cpp"
 using namespace std;
 
-const int N = 1001;
-int n, m;
-vi adj[N];
-bool visited[N];
+struct Node {
+    int value;
+    int height;
+    Node *start, *end;
 
-void input() {
-    cin >> n >> m;
-    REP(i, m) {
-        int x, y;
-        cin >> x >> y;
-        adj[x].PB(y);
-        adj[y].PB(x);
+    Node(int value) {
+        this->value = value;
+        this->height = 0;
+        this->start = nullptr;
+        this->end = nullptr;
+    }
+};
+
+class AVLTree {
+private:
+    Node *root;
+
+    Node *createNode(int value) {
+        Node *node = new Node(value);
+        return node;
     }
 
-    MEMSET(visited, false);
-}
+public:
+    AVLTree() { root = nullptr; }
 
-void dfs(int u) {
-    visited[u] = true;
-    REP(i, SZ(adj[u])) {
-        if (!visited[adj[u][i]]) {
-            dfs(adj[u][i]);
-        }
-    }
-}
-
-void solve() {
-    int connected = 0;
-    FOR(i, 1, n) {
-        if (!visited[i]) {
-            connected++;
-            dfs(i);
-        }
-    }
-
-    MEMSET(visited, false);
-
-    int ans = 0;
-    vi res;
-
-    FOR(i, 1, n) {
-        int count = 0;
-        visited[i] = true;
-        FOR(k, 1, n) {
-            if (!visited[k]) {
-                count++;
-                dfs(k);
-            }
-        }
-
-        if (count > connected) {
-            ans += 1;
-            res.PB(i);
-        }
-
-        MEMSET(visited, false);
-    }
-
-    cout << "Ans: " << ans << endl;
-    REP(i, SZ(res)) { cout << res[i] << " "; }
-}
+    Node *insertNode(Node *root, int value) {}
+};
 
 int main() {
     FAST_IO;
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
+    READ_WRITE_FILE();
 
-    input();
-    solve();
+    AVLTree *tree = new AVLTree();
 
     return 0;
 }
