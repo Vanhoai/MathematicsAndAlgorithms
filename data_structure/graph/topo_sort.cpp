@@ -30,7 +30,7 @@ void input() {
 
 void init() {
     for (int i = 1; i <= n; i++) {
-        for (int v : adj[i]) {
+        for (int v: adj[i]) {
             in_degree[v]++;
         }
     }
@@ -46,7 +46,7 @@ void init() {
         q.pop();
         result.push_back(u);
 
-        for (int v : adj[u]) {
+        for (int v: adj[u]) {
             in_degree[v]--;
             if (in_degree[v] == 0) {
                 q.push(v);
@@ -54,14 +54,14 @@ void init() {
         }
     }
 
-    for (int u : result) {
+    for (int u: result) {
         cout << u << " ";
     }
 
     cout << endl;
 }
 
-int main() {
+int main_graph() {
     input();
     init();
     return 0;

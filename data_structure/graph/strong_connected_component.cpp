@@ -27,7 +27,7 @@ void input() {
 
 void dfs(int u) {
     visited[u] = true;
-    for (int v : adj[u]) {
+    for (int v: adj[u]) {
         if (!visited[v]) {
             dfs(v);
         }
@@ -39,7 +39,7 @@ void dfs(int u) {
 void dfs_solve(int u) {
     visited[u] = true;
     ans += to_string(u) + " ";
-    for (int v : reverse_adj[u]) {
+    for (int v: reverse_adj[u]) {
         if (!visited[v]) {
             dfs_solve(v);
         }
@@ -62,7 +62,7 @@ void strong_connected_component() {
         if (!visited[u]) {
             ans += to_string(u) + " ";
             visited[u] = true;
-            for (int v : reverse_adj[u]) {
+            for (int v: reverse_adj[u]) {
                 if (!visited[v]) {
                     dfs_solve(v);
                 }
@@ -84,7 +84,7 @@ void strong_connected_component() {
 // 6 7
 // 7 5
 
-int main() {
+int main_graph() {
     input();
     strong_connected_component();
 

@@ -23,7 +23,7 @@ void input() {
 
 void dfs(int u) {
     visited[u] = true;
-    for (int v : adj[u]) {
+    for (int v: adj[u]) {
         if (!visited[v]) {
             parent[v] = u;
             dfs(v);
@@ -52,7 +52,7 @@ void solve() {
     cout << endl;
 }
 
-int main() {
+int main_graph() {
     solve();
     return 0;
 }

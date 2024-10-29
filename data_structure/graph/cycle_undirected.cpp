@@ -20,7 +20,7 @@ void input() {
 
 bool dfs(int u, int p) {
     visited[u] = true;
-    for (int v : adj[u]) {
+    for (int v: adj[u]) {
         if (!visited[v]) {
             if (dfs(v, u)) {
                 return true;
@@ -44,7 +44,7 @@ bool isCycle() {
     return false;
 }
 
-int main() {
+int main_graph() {
     input();
     cout << isCycle() << endl;
     return 0;

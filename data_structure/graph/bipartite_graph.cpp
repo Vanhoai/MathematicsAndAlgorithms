@@ -1,25 +1,17 @@
-#include <cmath>
-#include <climits>
 #include <queue>
 #include <vector>
-#include <map>
-#include <cstdlib>
 #include <fstream>
-#include <iomanip>   
-#include <iostream>  
-#include <sstream>
-#include <stack>
+#include <iostream>
 #include <algorithm>
 #include <cstring>
-#include <cassert>
 using namespace std;
 
 // Type Aliases
-typedef long long ll;              // Alias for long long
-typedef pair<int, int> pi;         // Alias for pair of integers
-typedef vector<int> vi;             // Alias for vector of integers
-typedef vector<ll> vll;             // Alias for vector of long long
-typedef vector<pi> vii;             // Alias for vector of pairs
+typedef long long ll; // Alias for long long
+typedef pair<int, int> pi; // Alias for pair of integers
+typedef vector<int> vi; // Alias for vector of integers
+typedef vector<ll> vll; // Alias for vector of long long
+typedef vector<pi> vii; // Alias for vector of pairs
 
 // Macros for common operations
 #define F first                     // Short for accessing first element of pair
@@ -50,12 +42,11 @@ typedef vector<pi> vii;             // Alias for vector of pairs
 // Fast I/O
 #define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 
-// Shortening Cin and Cout (optional for reducing typing)
-#define sc(x) cin >> x              // Shorter input command
-#define pf(x) cout << x << endl     // Shorter output command with newline
-
 // Functions
-int gcd(int a, int b) { if (b == 0) return a; return gcd(b, a % b); }
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
 
 
 const int N = 1001;
@@ -80,7 +71,8 @@ bool bfs(int u) {
     Q.push(u);
     color[u] = 0;
     while (!Q.empty()) {
-        int x = Q.front(); Q.pop();
+        int x = Q.front();
+        Q.pop();
         REP(i, adj[x].size()) {
             int v = adj[x][i];
             if (color[v] == -1) {
@@ -108,14 +100,10 @@ bool dfs(int u, int p) {
     }
 
     return true;
- }
+}
 
-int main() {
+int main_graph() {
     FAST_IO;
-    #ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-    #endif
 
     input();
     bool check = true;
@@ -130,6 +118,6 @@ int main() {
 
     if (check) cout << "YES" << endl;
     else cout << "NO" << endl;
-  
+
     return 0;
 }

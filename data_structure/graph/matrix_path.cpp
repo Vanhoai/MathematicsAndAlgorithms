@@ -42,7 +42,7 @@ bool dfs(int i, int j) {
 }
 
 void bfs(const int i, const int j) {
-    queue<pair<int, int>> q;
+    queue<pair<int, int> > q;
     q.push(make_pair(i, j));
     a[i][j] = 'x';
     step[i][j] = 0;
@@ -78,7 +78,7 @@ int countConnected() {
     return count;
 }
 
-int main() {
+int main_graph() {
     input();
     bfs(1, 1);
 

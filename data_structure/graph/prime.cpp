@@ -61,7 +61,7 @@ void prim(int u) {
     cout << d << endl;
 }
 
-int main() {
+int main_graph() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     

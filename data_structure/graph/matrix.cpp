@@ -58,7 +58,7 @@ int countConnected() {
     return count;
 }
 
-int main() {
+int main_graph() {
     input();
     cout << "Connected components: " << countConnected() << endl;
     return 0;

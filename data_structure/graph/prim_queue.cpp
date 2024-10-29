@@ -5,8 +5,8 @@
 #include <map>
 #include <cstdlib>
 #include <fstream>
-#include <iomanip>   
-#include <iostream>  
+#include <iomanip>
+#include <iostream>
 #include <sstream>
 #include <stack>
 #include <algorithm>
@@ -15,11 +15,11 @@
 using namespace std;
 
 // Type Aliases
-typedef long long ll;              // Alias for long long
-typedef pair<int, int> pi;         // Alias for pair of integers
-typedef vector<int> vi;             // Alias for vector of integers
-typedef vector<ll> vll;             // Alias for vector of long long
-typedef vector<pi> vii;             // Alias for vector of pairs
+typedef long long ll; // Alias for long long
+typedef pair<int, int> pi; // Alias for pair of integers
+typedef vector<int> vi; // Alias for vector of integers
+typedef vector<ll> vll; // Alias for vector of long long
+typedef vector<pi> vii; // Alias for vector of pairs
 
 // Macros for common operations
 #define F first                     // Short for accessing first element of pair
@@ -55,7 +55,10 @@ typedef vector<pi> vii;             // Alias for vector of pairs
 #define pf(x) cout << x << endl     // Shorter output command with newline
 
 // Functions
-int gcd(int a, int b) { if (b == 0) return a; return gcd(b, a % b); }
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
 
 
 struct Edge {
@@ -88,12 +91,13 @@ void prim(int u) {
     Q.push(MP(0, u));
 
     while (!Q.empty()) {
-        pi top = Q.top(); Q.pop();
+        pi top = Q.top();
+        Q.pop();
         int x = top.S;
         int wX = top.F;
 
         if (used[x]) continue;
-        
+
         res += wX;
         used[x] = true;
         if (u != x) {
@@ -119,12 +123,12 @@ void prim(int u) {
     }
 }
 
-int main() {
+int main_graph() {
     FAST_IO;
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
-    #endif
+#endif
 
     input();
     prim(1);

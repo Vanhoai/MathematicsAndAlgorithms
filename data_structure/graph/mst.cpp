@@ -3,7 +3,7 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef pair<int,int> pi;
+typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
 #define F first
@@ -72,14 +72,14 @@ void prim(int u) {
     }
 }
 
-int main() {
+int main_graph() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
-    #endif
+#endif
 
     input();
     prim(1);

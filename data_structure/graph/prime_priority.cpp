@@ -34,7 +34,7 @@ void prime(int u) {
     int res = 0;
     q.push(make_pair(0, u));
 
-    while(!q.empty()) {
+    while (!q.empty()) {
         pair<int, int> top = q.top();
         q.pop();
 
@@ -68,17 +68,17 @@ void prime(int u) {
     }
 }
 
-int main() {
+int main_graph() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 
     input();
     prime(1);
-    
+
     return 0;
 }

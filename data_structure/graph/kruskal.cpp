@@ -12,12 +12,12 @@ struct Edge {
 int n, m;
 vector<Edge> edges;
 int parent[1001];
-int size[1001];
+int sized[1001];
 
 void make_set() {
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
-        size[i] = 1;
+        sized[i] = 1;
     }
 }
 
@@ -31,9 +31,9 @@ bool Union(int a, int b) {
     b = find(b);
     if (a == b) return false;
 
-    if (size[a] < size[b]) swap(a, b);
+    if (sized[a] < sized[b]) swap(a, b);
     parent[b] = a;
-    size[a] += size[b];
+    sized[a] += sized[b];
     return true;
 }
 
@@ -76,14 +76,14 @@ void solve() {
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    #ifndef ONLINE_JUDGE
-        freopen("./in.txt", "r", stdin);
-        freopen("./out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("./in.txt", "r", stdin);
+    freopen("./out.txt", "w", stdout);
+#endif
 
     input();
     make_set();
     solve();
-    
+
     return 0;
 }
