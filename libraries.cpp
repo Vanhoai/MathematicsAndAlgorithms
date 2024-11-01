@@ -55,6 +55,7 @@ typedef vector<vector<double> > vvd;
 #define MAX(a, l, r) max(a,l,r)             // Max of array
 #define SORT_ASC(a, l, r) sort_asc(a, l, r) // Sort array in ascending order
 #define SORT_DESC(a, l, r) sort_desc(a, l, r) // Sort array in descending order
+#define IS_PRIME(x) isPrime(x)             // Checks if x is prime
 
 // Fast I/O
 #define FAST_IO                                                                \
@@ -107,6 +108,14 @@ int max(int * a, int l, int r) {
     int m2 = max(a, m + 1, r);
 
     return m1 < m2 ? m2 : m1;
+}
+
+int isPrime(int n) {
+    if (n < 2) return 0;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return 0;
+    }
+    return 1;
 }
 
 void sort_asc(int *a, int l, int r) {
