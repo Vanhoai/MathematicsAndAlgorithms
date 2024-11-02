@@ -2,75 +2,68 @@
 #include "libraries.cpp"
 using namespace std;
 
-bool dfs(int u, int t, vvi& residualGraph, vector<int>& parent, vector<bool>& visited) {
-    visited[u] = true;
-    int n = residualGraph.size();
-    if (u == t) return true;
+class SegmentTree {
+private:
+    vi st, A;
+    int n;
+    int left(int p) { return p << 1; }
+    int right(int p) { return (p << 1) + 1; }
 
-    REP(v, n) {
-        if (!visited[v] && residualGraph[u][v] > 0) {
-            parent[v] = u;
-            if (dfs(v, t, residualGraph, parent, visited)) {
-                return true;
-            }
+    void build(int p, int L, int R) {
+        if (L == R)
+            st[p] = A[L];
+        else {
+            build(left(p), L, (L + R) / 2);
+            build(right(p), ((L + R) / 2) + 1, R);
+            int p1 = st[left(p)], p2 = st[right(p)];
+            st[p] = (A[p1] <= A[p2]) ? p1 : p2;
         }
     }
-    
-    return false;
-}
 
-int fordFulkerson(vvi& graph, int s, int t) {
-    int u, v;
-    int n = graph.size();
-    vvi residualGraph = graph;
-    vector<int> parent(n);
-    int maxFlow = 0;
-
-    while (true) {
-        vector<bool> visited(n, false);
-        if (!dfs(s, t, residualGraph, parent, visited)) {
-            break;
-        }
-
-        int pathFlow = INT_MAX;
-        for (v = t; v != s; v = parent[v]) {
-            u = parent[v];
-            pathFlow = min(pathFlow, residualGraph[u][v]);
-        }
-
-        for (v = t; v != s; v = parent[v]) {
-            u = parent[v];
-            residualGraph[u][v] -= pathFlow;
-            residualGraph[v][u] += pathFlow;
-        }
-
-        maxFlow += pathFlow;
+public:
+    SegmentTree(const vi &_A) {
+        A = _A;
+        n = (int) A.size();    // copy content for local usage
+        st.assign(4 * n, 0);   // create large enough vector of zeroes
+        build(1, 0, n - 1);    // recursive build
     }
 
-    return maxFlow;
-}
+    int rmq(int p, int L, int R, int i, int j) {   // O(log n)
+        if (i > R || j < L)
+            return -1;   // current segment outside query range
+        if (L >= i && R <= j)
+            return st[p];   // inside query range
+
+        int p1 = rmq(left(p), L, (L + R) / 2, i, j);
+        int p2 = rmq(right(p), (L + R) / 2 + 1, R, i, j);
+
+        if (p1 == -1)
+            return p2;   // if we try to access segment outside query
+        if (p2 == -1)
+            return p1;   // same as above
+
+        return (A[p1] <= A[p2]) ? p1 : p2;   // as in build routine
+    }
+};
 
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
-    
-    int n; cin >> n;
-    vvi graph(n, vi(n));
-    REP(i, n) {
-        REP(k, n) cin >> graph[i][k];
+
+    int n;
+    cin >> n;
+    vi a(n);
+    REP(i, n) cin >> a[i];
+
+    SegmentTree st(a);
+
+    int tc;
+    cin >> tc;
+    while (tc--) {
+        int l, r;
+        cin >> l >> r;
+        cout << st.rmq(1, 0, n - 1, l - 1, r - 1) << endl;
     }
-
-    int source = 0, sink = 5;
-    cout << fordFulkerson(graph, source, sink) << endl;
-
-    REP(k, n) {
-        REP(b, n) {
-            if (IS_PRIME(graph[k][b])) {
-                cout << graph[k][b] << " ";
-            }
-        }
-    }
-
 
     return 0;
 }
