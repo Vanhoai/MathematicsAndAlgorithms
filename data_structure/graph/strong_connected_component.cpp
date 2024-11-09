@@ -85,6 +85,9 @@ void strong_connected_component() {
 // 7 5
 
 int main_graph() {
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    
     input();
     strong_connected_component();
 

@@ -14,6 +14,8 @@ vector<Edge> edges;
 int parent[1001];
 int sized[1001];
 
+// Disjoint Set Union Find
+
 void make_set() {
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
@@ -29,9 +31,10 @@ int find(int u) {
 bool Union(int a, int b) {
     a = find(a);
     b = find(b);
+    
     if (a == b) return false;
-
     if (sized[a] < sized[b]) swap(a, b);
+    
     parent[b] = a;
     sized[a] += sized[b];
     return true;
@@ -76,10 +79,10 @@ void solve() {
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-#ifndef ONLINE_JUDGE
-    freopen("./in.txt", "r", stdin);
-    freopen("./out.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("./in.txt", "r", stdin);
+        freopen("./out.txt", "w", stdout);
+    #endif
 
     input();
     make_set();
