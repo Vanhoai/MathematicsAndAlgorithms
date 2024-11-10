@@ -1,6 +1,6 @@
+#include <bitset>
 #include <iostream>
 #include <map>
-#include <bitset>
 using namespace std;
 
 #define FAST_IO                                                                \

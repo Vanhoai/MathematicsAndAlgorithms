@@ -19,4 +19,4 @@ Complex mul_complex(Complex complex1, Complex complex2);
 Complex div_complex(Complex complex1, Complex complex2);
 double abs_complex(Complex complex);
 
-#endif //COMPLEX_H
+#endif   // COMPLEX_H
