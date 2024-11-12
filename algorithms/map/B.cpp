@@ -4,10 +4,6 @@
 #include <vector>
 #include <queue>
 #include <stack>
-#include <string>
-#include <set>
-#include <algorithm>
-#include <sstream>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -31,31 +27,27 @@ int main() {
     READ_WRITE_FILE();
 
     int tc; cin >> tc;
-    cin.ignore();
     while (tc--) {
-        string s;
-        getline(cin, s);
-        stack<string> st;
+        int n, target; cin >> n >> target;
+        int a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-        stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        map<int, int> mp;
+        vii ans;
+
+        for (int i = 0; i < n; ++i) {
+            if (mp.find(target - a[i]) != mp.end()) {
+                ans.push_back(make_pair(a[i], target - a[i]));
+            }
+
+            mp[a[i]] = 1;
         }
 
-        while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
+        for (auto it : ans) {
+            cout << it.first << " " << it.second << endl;
         }
 
         cout << endl;
-    }
+    }    
 
     return 0;
 }
-
-
-
-
-
-

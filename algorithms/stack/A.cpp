@@ -31,21 +31,18 @@ int main() {
     READ_WRITE_FILE();
 
     int tc; cin >> tc;
-    cin.ignore();
     while (tc--) {
-        string s;
-        getline(cin, s);
-        stack<string> st;
-
-        stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        int n; cin >> n;
+        stack<int> st;
+        while (n != 0) {
+            int x = n % 2;
+            n >>= 1;
+            st.push(x);
         }
 
         while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
+            cout << st.top();
+            st.pop();
         }
 
         cout << endl;

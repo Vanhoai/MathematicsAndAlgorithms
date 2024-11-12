@@ -6,8 +6,6 @@
 #include <stack>
 #include <string>
 #include <set>
-#include <algorithm>
-#include <sstream>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -35,20 +33,21 @@ int main() {
     while (tc--) {
         string s;
         getline(cin, s);
-        stack<string> st;
-
-        stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        int a[26];
+        memset(a, 0, sizeof(a));
+        for (char it : s) {
+            a[tolower(it) - 'a'] = 1;
         }
 
-        while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
+        int check = 1;
+        for (int i = 0; i < 26; i++ ) {
+            if (!a[i]) {
+                check = 0;
+                break;
+            }
         }
 
-        cout << endl;
+        cout << check << endl;
     }
 
     return 0;

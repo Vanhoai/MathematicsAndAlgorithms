@@ -4,10 +4,6 @@
 #include <vector>
 #include <queue>
 #include <stack>
-#include <string>
-#include <set>
-#include <algorithm>
-#include <sstream>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -31,25 +27,20 @@ int main() {
     READ_WRITE_FILE();
 
     int tc; cin >> tc;
-    cin.ignore();
     while (tc--) {
-        string s;
-        getline(cin, s);
-        stack<string> st;
+        int n; cin >> n;
+        int a[n]; for (int &x: a) cin >> x;
 
-        stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        sort(a, a +  n);
+        int count = 1;
+        for (int i = 2; i < n; ++i) {
+            if (a[i] != a[i - 1]) {
+                count++;
+            }
         }
 
-        while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
-        }
-
-        cout << endl;
-    }
+        cout << count << endl;
+    }    
 
     return 0;
 }

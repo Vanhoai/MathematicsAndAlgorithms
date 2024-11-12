@@ -35,20 +35,15 @@ int main() {
     while (tc--) {
         string s;
         getline(cin, s);
-        stack<string> st;
 
         stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        string word;
+        set<string> se;
+        while(ss >> word) {
+            se.insert(word);
         }
 
-        while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
-        }
-
-        cout << endl;
+        cout << se.size() << endl;
     }
 
     return 0;

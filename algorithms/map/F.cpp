@@ -5,9 +5,6 @@
 #include <queue>
 #include <stack>
 #include <string>
-#include <set>
-#include <algorithm>
-#include <sstream>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -35,20 +32,22 @@ int main() {
     while (tc--) {
         string s;
         getline(cin, s);
-        stack<string> st;
-
-        stringstream ss(s);
-        string w;
-        while (ss >> w) {
-            st.push(w);
+        int a[256];
+        memset(a, 0, sizeof(a));
+        for (char it : s) {
+            a[it]++;
         }
 
-        while(!st.empty()) {
-            string t = st.top(); st.pop();
-            cout << t << " ";
+        char res;
+        int mx = INT_MIN;
+        for (int i = 0; i < 256; i++) {
+            if (a[i] > mx) {
+                mx = a[i];
+                res = (char)(i);
+            }
         }
 
-        cout << endl;
+        cout << (char)(res) << ": " << mx << endl;
     }
 
     return 0;
