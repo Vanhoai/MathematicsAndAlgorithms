@@ -1,2 +1,2 @@
-rust swift kotlin c++ 
-scotland iceland switzerland 
+3 5 6 -1 3 -1 
+5 5 5 -1 -1 

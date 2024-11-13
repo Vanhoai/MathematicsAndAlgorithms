@@ -33,33 +33,22 @@ int main() {
     int tc; cin >> tc;
     while (tc--) {
         int n; cin >> n;
-        int a[n], b[n];
+        int a[n];
         for (int &x: a) cin >> x;
 
-        stack<int> st;
-        for (int i = 0; i < n; i++) {
-            if (st.empty()) {
-                st.push(i);
-            } else {
-                while (!st.empty() && a[i] > a[st.top()]) {
-                    b[st.top()] = a[i];
-                    st.pop();
+        for (int i = 0; i < n - 1; i++) {
+            int max = -1;
+            for (int k = i + 1; k < n; k++) {
+                if (a[k] > a[i]) {
+                    max = a[k];
+                    break;
                 }
-
-                st.push(i);
             }
+
+            cout << max << " ";
         }
 
-        while (!st.empty()) {
-            b[st.top()] = -1;
-            st.pop();
-        }
-
-        for (auto it : b) {
-            cout << it << " ";
-        }
-
-        cout << endl;
+        cout << -1 << endl;
     }
 
     return 0;
