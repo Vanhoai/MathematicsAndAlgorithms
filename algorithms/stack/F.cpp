@@ -51,7 +51,7 @@ int main() {
                     res = max(res, (i - st.top() - 1) * a[idx]);
                 }
             }
-        }
+         }
 
         while (!st.empty()) {
             int idx = st.top();
