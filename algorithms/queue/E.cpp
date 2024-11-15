@@ -65,7 +65,10 @@ int solve() {
             int i1 = t.x + dx[i];
             int j1 = t.y + dy[i];
 
-            if (i1 == edx && j1 == edy) return t.step + 1;
+            if (i1 == edx && j1 == edy) {
+                return t.step + 1;
+            }
+
             if (i1 >= 1 && i1 <= n && j1 >= 1 && j1 <= m && a[i1][j1] == 1) {
                 a[i1][j1] = 0;
                 q.push({i1, j1, t.step + 1});
