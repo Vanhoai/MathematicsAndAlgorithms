@@ -15,7 +15,6 @@ typedef vector<pi> vii;
 #define PB push_back
 #define MP make_pair
 #define REP(i, a, b) for (int i = (a); i <= (b); i++)
-#define LOOP(i, b) for (int i = 0; i < (b); i++)
 
 void READ_WRITE_FILE() {
     #ifndef ONLINE_JUDGE
@@ -28,24 +27,15 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int n, m;
-    cin >> n >> m;
-    int a[n][m];
-    LOOP(i, n) LOOP(j, m) cin >> a[i][j];
+    int n, k; cin >> n >> k;
+    int a[n]; for (int &x: a) cin >> x;
 
-    LOOP(i, n) {
-        LOOP(j, m) cout << a[i][j] << " ";
-        cout << endl;
-    } 
+    int prefix[n + 1];
+    prefix[0] = a[0];
+    for (int i = 1; i < n; i++) prefix[i] = prefix[i - 1] + a[i];
 
-    int prefix[n + 1][m + 1];
-    REP(i, 1, n) REP(j, 1, m) {
-        prefix[i][j] = a[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
-    }
-
-    REP(i, 0, n) {
-        REP(j, 0, m) cout << prefix[i][j] << " ";
-        cout << endl;
+    for (int x: a) {
+        cout << x << " ";
     }
 
     return 0;

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <map>
 using namespace std;
 
 typedef long long LL;
@@ -15,7 +14,6 @@ typedef vector<pi> vii;
 #define PB push_back
 #define MP make_pair
 #define REP(i, a, b) for (int i = (a); i <= (b); i++)
-#define LOOP(i, b) for (int i = 0; i < (b); i++)
 
 void READ_WRITE_FILE() {
     #ifndef ONLINE_JUDGE
@@ -24,28 +22,23 @@ void READ_WRITE_FILE() {
     #endif
 }
 
+
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int n, m;
-    cin >> n >> m;
-    int a[n][m];
-    LOOP(i, n) LOOP(j, m) cin >> a[i][j];
+    int n; cin >> n;
+    int a[n], prefix[n];
+    REP(i, 0, n - 1) cin >> a[i];
 
-    LOOP(i, n) {
-        LOOP(j, m) cout << a[i][j] << " ";
-        cout << endl;
-    } 
+    memset(prefix, 0, sizeof(prefix));
+    prefix[0] = a[0];
+    REP(i, 1, n - 1) prefix[i] = prefix[i - 1] + a[i];
 
-    int prefix[n + 1][m + 1];
-    REP(i, 1, n) REP(j, 1, m) {
-        prefix[i][j] = a[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
-    }
-
-    REP(i, 0, n) {
-        REP(j, 0, m) cout << prefix[i][j] << " ";
-        cout << endl;
+    int q; cin >> q;
+    while (q--) {
+        int L, R; cin >> L >> R;
+        cout << prefix[R] - prefix[L - 1] << endl;
     }
 
     return 0;

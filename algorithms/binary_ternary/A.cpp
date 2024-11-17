@@ -1,6 +1,4 @@
 #include <iostream>
-#include <iomanip>
-#include <map>
 using namespace std;
 
 typedef long long LL;
@@ -15,7 +13,6 @@ typedef vector<pi> vii;
 #define PB push_back
 #define MP make_pair
 #define REP(i, a, b) for (int i = (a); i <= (b); i++)
-#define LOOP(i, b) for (int i = 0; i < (b); i++)
 
 void READ_WRITE_FILE() {
     #ifndef ONLINE_JUDGE
@@ -24,30 +21,35 @@ void READ_WRITE_FILE() {
     #endif
 }
 
+bool search(int *a, int n, int x) {
+    int L = 0;
+    int R = n - 1;
+
+    while (L <= R) {
+        int m = (L + R) >> 1;
+        if (a[m] == x) return true;
+        if (a[m] < x) L = m + 1;
+        else R = m - 1;
+    }
+
+    return false;
+}
+
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
+    
+    int TC, n;
+    int a[n];
+    cin >> TC >> n;
+    REP(i, 0, n - 1) cin >> a[i];
 
-    int n, m;
-    cin >> n >> m;
-    int a[n][m];
-    LOOP(i, n) LOOP(j, m) cin >> a[i][j];
-
-    LOOP(i, n) {
-        LOOP(j, m) cout << a[i][j] << " ";
-        cout << endl;
-    } 
-
-    int prefix[n + 1][m + 1];
-    REP(i, 1, n) REP(j, 1, m) {
-        prefix[i][j] = a[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
+    while (TC--) {
+        int x; cin >> x;
+        if (search(a, n, x)) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-
-    REP(i, 0, n) {
-        REP(j, 0, m) cout << prefix[i][j] << " ";
-        cout << endl;
-    }
-
+ 
     return 0;
 }
 
