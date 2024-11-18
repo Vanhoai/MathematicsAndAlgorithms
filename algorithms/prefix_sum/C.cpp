@@ -3,7 +3,7 @@
 #include <map>
 using namespace std;
 
-typedef long long ll;
+typedef long long LL;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
@@ -14,6 +14,8 @@ typedef vector<pi> vii;
 
 #define PB push_back
 #define MP make_pair
+#define REP(i, a, b) for (int i = (a); i <= (b); i++)
+#define LOOP(i, b) for (int i = 0; i < (b); i++)
 
 void READ_WRITE_FILE() {
     #ifndef ONLINE_JUDGE
@@ -26,21 +28,10 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
-    while (tc--) {
-        int n; cin >> n;
-        map<int, int> mp;
-        for (int i = 0; i < n; i++) {
-            int x; cin >> x;
-            mp[x]++;
-        }
-
-        for (auto it : mp) {
-            cout << it.first << " " << it.second << endl;
-        }
-
-        cout << endl;
-    }
+    int n, m;
+    cin >> n >> m;
+    int a[n][m];
+    LOOP(i, n) LOOP(j, m) cin >> a[i][j];
 
     return 0;
 }
