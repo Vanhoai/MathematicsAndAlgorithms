@@ -5,12 +5,15 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
-        int n; cin >> n;
+        int n;
+        cin >> n;
         map<int, int> mp;
         REP(i, n) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             mp[x]++;
         }
 
@@ -18,7 +21,7 @@ int main() {
             if (it->second == 1) {
                 cout << it->first << endl;
                 break;
-            } 
+            }
         }
     }
 

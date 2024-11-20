@@ -1,29 +1,29 @@
+#include <algorithm>
 #include <bitset>
 #include <iostream>
 #include <map>
-#include <vector>
 #include <queue>
+#include <set>
+#include <sstream>
 #include <stack>
 #include <string>
-#include <set>
-#include <algorithm>
-#include <sstream>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
-#define FAST_IO                     \
-    ios::sync_with_stdio(false);    \
-    cin.tie(nullptr);               \
+#define FAST_IO                                                                \
+    ios::sync_with_stdio(false);                                               \
+    cin.tie(nullptr);                                                          \
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int n, m;
@@ -32,7 +32,7 @@ bool visited[1001];
 
 void dfs(int u) {
     visited[u] = true;
-    for (int v: adj[u]) {
+    for (int v : adj[u]) {
         if (visited[v]) {
             dfs(v);
         }
@@ -42,7 +42,8 @@ void dfs(int u) {
 void input() {
     cin >> n >> m;
     for (int i = 0; i < m; i++) {
-        int x, y; cin >> x >> y;
+        int x, y;
+        cin >> x >> y;
         adj[x].PB(y);
         adj[y].PB(x);
     }
@@ -69,9 +70,3 @@ int main() {
     solve();
     return 0;
 }
-
-
-
-
-
-

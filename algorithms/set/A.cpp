@@ -5,12 +5,15 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
         set<int> st;
-        int n; cin >> n;
+        int n;
+        cin >> n;
         REP(i, n) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             st.insert(x);
         }
 
@@ -22,6 +25,6 @@ int main() {
 
         cout << endl;
     }
-    
+
     return 0;
 }

@@ -5,19 +5,23 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
-        int n, m; cin >> n >> m;
+        int n, m;
+        cin >> n >> m;
         set<int> s1;
         set<int> s2;
 
         REP(i, n) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             s1.insert(x);
         }
 
         REP(i, m) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             s2.insert(x);
         }
 

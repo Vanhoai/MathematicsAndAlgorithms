@@ -1,11 +1,11 @@
 #include <bitset>
 #include <iostream>
 #include <map>
-#include <vector>
 #include <queue>
+#include <set>
 #include <stack>
 #include <string>
-#include <set>
+#include <vector>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -18,17 +18,18 @@ typedef vector<pi> vii;      // Alias for vector of integers
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     cin.ignore();
     while (tc--) {
         string s;
@@ -40,7 +41,7 @@ int main() {
         }
 
         int check = 1;
-        for (int i = 0; i < 26; i++ ) {
+        for (int i = 0; i < 26; i++) {
             if (!a[i]) {
                 check = 0;
                 break;
@@ -52,9 +53,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-

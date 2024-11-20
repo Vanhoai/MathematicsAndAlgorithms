@@ -1,9 +1,9 @@
 #include <bitset>
 #include <iostream>
 #include <map>
-#include <vector>
 #include <queue>
 #include <stack>
+#include <vector>
 using namespace std;
 
 typedef long long ll;        // Alias for long long
@@ -16,20 +16,24 @@ typedef vector<pi> vii;      // Alias for vector of integers
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
-        int n, target; cin >> n >> target;
-        int a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+        int n, target;
+        cin >> n >> target;
+        int a[n];
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
 
         map<int, int> mp;
         vii ans;
@@ -47,7 +51,7 @@ int main() {
         }
 
         cout << endl;
-    }    
+    }
 
     return 0;
 }

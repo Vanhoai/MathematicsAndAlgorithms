@@ -6,26 +6,26 @@
 #include <set>
 #include <sstream>
 #include <stack>
-#include <string>
-#include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
-#define FAST_IO                     \
-    ios::sync_with_stdio(false);    \
-    cin.tie(nullptr);               \
+#define FAST_IO                                                                \
+    ios::sync_with_stdio(false);                                               \
+    cin.tie(nullptr);                                                          \
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int bin2Dec(string s) {
@@ -42,9 +42,11 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
-        int t; cin >> t;
+        int t;
+        cin >> t;
 
         queue<string> q;
         q.push("9");

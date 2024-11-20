@@ -5,17 +5,21 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
-    while (tc --) {
-        int n, m; cin >> n >> m;
+    int tc;
+    cin >> tc;
+    while (tc--) {
+        int n, m;
+        cin >> n >> m;
         set<int> st;
         REP(i, n) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             st.insert(x);
         }
 
         REP(i, m) {
-            int x; cin >> x;
+            int x;
+            cin >> x;
             if (st.find(x) != st.end()) {
                 st.erase(x);
             }
@@ -27,7 +31,6 @@ int main() {
 
         cout << endl;
     }
-    
 
     return 0;
 }

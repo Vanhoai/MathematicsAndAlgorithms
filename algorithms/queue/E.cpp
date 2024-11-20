@@ -6,30 +6,30 @@
 #include <set>
 #include <sstream>
 #include <stack>
-#include <string>
-#include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
-#define FAST_IO                     \
-    ios::sync_with_stdio(false);    \
-    cin.tie(nullptr);               \
+#define FAST_IO                                                                \
+    ios::sync_with_stdio(false);                                               \
+    cin.tie(nullptr);                                                          \
     cout.tie(nullptr)
 
-#define PB push_back
-#define MP make_pair
+#define PB           push_back
+#define MP           make_pair
 #define REP(i, a, b) for (int i = (a); i <= (b); i++)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 const int MAXN = 1001;
@@ -57,7 +57,7 @@ int solve() {
 
     int step = -1;
 
-    while(!q.empty()) {
+    while (!q.empty()) {
         Node t = q.front();
         q.pop();
 
@@ -65,7 +65,8 @@ int solve() {
             int i1 = t.x + dx[i];
             int j1 = t.y + dy[i];
 
-            if (i1 == edx && j1 == edy) return t.step + 1;
+            if (i1 == edx && j1 == edy)
+                return t.step + 1;
             if (i1 >= 1 && i1 <= n && j1 >= 1 && j1 <= m && a[i1][j1] == 1) {
                 a[i1][j1] = 0;
                 q.push({i1, j1, t.step + 1});
@@ -80,7 +81,8 @@ int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
         input();
         cout << solve() << endl;
@@ -88,27 +90,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

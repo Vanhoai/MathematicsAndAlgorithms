@@ -6,35 +6,37 @@
 #include <set>
 #include <sstream>
 #include <stack>
-#include <string>
-#include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
-#define FAST_IO                     \
-    ios::sync_with_stdio(false);    \
-    cin.tie(nullptr);               \
+#define FAST_IO                                                                \
+    ios::sync_with_stdio(false);                                               \
+    cin.tie(nullptr);                                                          \
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int main() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int tc; cin >> tc;
+    int tc;
+    cin >> tc;
     while (tc--) {
-        int n; cin >> n;
+        int n;
+        cin >> n;
 
         queue<string> q;
         vector<string> res;
@@ -45,8 +47,10 @@ int main() {
         res.push_back("8");
 
         while (true) {
-            string s = q.front(); q.pop();
-            if (s.size() > n - 1) break;
+            string s = q.front();
+            q.pop();
+            if (s.size() > n - 1)
+                break;
 
             string s1 = s + "6";
             string s2 = s + "8";
@@ -68,27 +72,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
