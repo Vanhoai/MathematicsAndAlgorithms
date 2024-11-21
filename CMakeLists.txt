@@ -29,4 +29,5 @@ add_executable(DataStructureAlgorithms main.cpp
         data_structure/graph/find_path.cpp
         data_structure/graph/topo_sort.cpp
         data_structure/graph/prime.cpp
+        libraries.cpp
 )

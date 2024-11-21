@@ -1,6 +1,4 @@
-#include <cmath>
 #include <iostream>
-#include <vector>
 using namespace std;
 
 #define MAX 1001
@@ -66,7 +64,7 @@ int main() {
     buildTree(1, 0, n - 1);
     update(1, 0, n - 1, 4, 8);
 
-    int sum = query(1, 0, n - 1, 5, 7);
+    const int sum = query(1, 0, n - 1, 5, 7);
     cout << sum << endl;
 
     return 0;
