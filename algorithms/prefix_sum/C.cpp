@@ -18,10 +18,10 @@ typedef vector<pi> vii;
 #define LOOP(i, b) for (int i = 0; i < (b); i++)
 
 void READ_WRITE_FILE() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int main_dev() {
@@ -31,7 +31,8 @@ int main_dev() {
     int n, m;
     cin >> n >> m;
     int a[n][m];
-    LOOP(i, n) LOOP(j, m) cin >> a[i][j];
+    LOOP(i, n)
+        LOOP(j, m) cin >> a[i][j];
 
     return 0;
 }

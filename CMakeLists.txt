@@ -53,4 +53,17 @@ add_executable(DataStructureAlgorithms
         algorithms/queue/C.cpp
         algorithms/queue/D.cpp
         algorithms/queue/E.cpp
+        algorithms/prefix_sum/A.cpp
+        algorithms/prefix_sum/B.cpp
+        algorithms/prefix_sum/C.cpp
+        algorithms/recursion/A.cpp
+        algorithms/recursion/B.cpp
+        algorithms/set/A.cpp
+        algorithms/set/B.cpp
+        algorithms/set/D.cpp
+        algorithms/set/E.cpp
+        algorithms/set/F.cpp
+        algorithms/set/G.cpp
+        algorithms/set/C.cpp
+        algorithms/rmq/A.cpp
 )
