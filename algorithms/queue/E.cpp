@@ -77,7 +77,7 @@ int solve() {
     return -1;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

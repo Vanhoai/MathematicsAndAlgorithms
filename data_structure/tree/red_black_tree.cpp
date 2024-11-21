@@ -63,4 +63,4 @@ public:
     }
 };
 
-int main() { return 0; }
+int main_dev() { return 0; }

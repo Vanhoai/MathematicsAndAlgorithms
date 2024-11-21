@@ -47,7 +47,7 @@ void solve(long long L, long long  R) {
     cout << endl;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

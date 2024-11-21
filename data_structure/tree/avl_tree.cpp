@@ -102,7 +102,7 @@ public:
     }
 };
 
-int main() {
+int main_dev() {
     AVLTree *tree;
 
     tree->insertNode(tree->root, 10);

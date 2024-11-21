@@ -48,7 +48,7 @@ double ternary_search() {
     return (L + R) / 2;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

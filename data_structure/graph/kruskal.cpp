@@ -76,7 +76,7 @@ void solve() {
     cout << "Cost: " << cost << " Size: " << mst.size() << endl;
 }
 
-int main() {
+int main_dev() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     #ifndef ONLINE_JUDGE

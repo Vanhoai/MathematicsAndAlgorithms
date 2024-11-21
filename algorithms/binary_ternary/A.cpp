@@ -35,7 +35,7 @@ bool search(int *a, int n, int x) {
     return false;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
     

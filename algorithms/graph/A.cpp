@@ -1,11 +1,7 @@
 #include <algorithm>
 #include <bitset>
 #include <iostream>
-#include <map>
-#include <queue>
-#include <set>
 #include <sstream>
-#include <stack>
 #include <string>
 #include <vector>
 using namespace std;
@@ -27,12 +23,12 @@ void READ_WRITE_FILE() {
 }
 
 int n, m;
-vi adj[1001];
+vector<int> adj[1001];
 bool visited[1001];
 
 void dfs(int u) {
     visited[u] = true;
-    for (int v : adj[u]) {
+    for (int v: adj[u]) {
         if (visited[v]) {
             dfs(v);
         }
@@ -44,8 +40,8 @@ void input() {
     for (int i = 0; i < m; i++) {
         int x, y;
         cin >> x >> y;
-        adj[x].PB(y);
-        adj[y].PB(x);
+        adj[x].push_back(y);
+        adj[y].push_back(x);
     }
 
     memset(visited, false, sizeof(visited));
@@ -64,7 +60,7 @@ void solve() {
     cout << count << endl;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
     solve();

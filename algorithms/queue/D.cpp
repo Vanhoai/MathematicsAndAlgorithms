@@ -57,7 +57,7 @@ int solve(int n, int t) {
     return -1;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

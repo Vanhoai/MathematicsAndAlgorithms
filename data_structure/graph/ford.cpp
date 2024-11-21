@@ -50,7 +50,7 @@ int fordFulkerson(vvi& graph, int s, int t) {
     return maxFlow;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
     

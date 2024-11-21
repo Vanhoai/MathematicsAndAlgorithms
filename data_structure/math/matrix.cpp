@@ -31,7 +31,7 @@ double calculateDeterminant(vvd matrix, int n) {
 }
 
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

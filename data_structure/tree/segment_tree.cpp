@@ -54,7 +54,7 @@ int query(int node, int start, int end, int left, int right) {
 // => segment tree: 36 10 26 3 7 11 15 1 2 3 4 5 6 7 8
 // a = { 1, 2, 3, 4, 8, 6, 7, 8 }
 
-int main() {
+int main_dev() {
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {

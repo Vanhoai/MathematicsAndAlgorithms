@@ -65,7 +65,7 @@ int query(int n, int L, int R, int i, int j) {
     }
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 

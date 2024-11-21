@@ -33,7 +33,7 @@ void solve(int n) {
     cout << endl;
 }
 
-int main() {
+int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 
