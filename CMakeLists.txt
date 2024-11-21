@@ -3,7 +3,8 @@ project(DataStructureAlgorithms)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(DataStructureAlgorithms main.cpp
+add_executable(DataStructureAlgorithms
+        main.cpp
         complex.h
         complex.cpp
         data_structure/vector.h
@@ -30,4 +31,26 @@ add_executable(DataStructureAlgorithms main.cpp
         data_structure/graph/topo_sort.cpp
         data_structure/graph/prime.cpp
         libraries.cpp
+        algorithms/graph/A.cpp
+        algorithms/map/A.cpp
+        algorithms/map/B.cpp
+        algorithms/map/C.cpp
+        algorithms/map/D.cpp
+        algorithms/map/E.cpp
+        algorithms/map/F.cpp
+        algorithms/map/G.cpp
+        algorithms/map/H.cpp
+        algorithms/binary_ternary/A.cpp
+        algorithms/binary_ternary/B.cpp
+        algorithms/stack/A.cpp
+        algorithms/stack/B.cpp
+        algorithms/stack/C.cpp
+        algorithms/stack/D.cpp
+        algorithms/stack/E.cpp
+        algorithms/stack/F.cpp
+        algorithms/queue/A.cpp
+        algorithms/queue/B.cpp
+        algorithms/queue/C.cpp
+        algorithms/queue/D.cpp
+        algorithms/queue/E.cpp
 )

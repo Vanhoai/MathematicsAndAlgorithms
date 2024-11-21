@@ -1,30 +1,13 @@
-#include <iomanip>
 #include <iostream>
 #include <map>
 using namespace std;
 
-typedef long long ll;
-typedef pair<int, int> pi;
-typedef vector<pi> vii;
-
-#define FAST_IO                                                                \
-    ios::sync_with_stdio(false);                                               \
-    cin.tie(nullptr);                                                          \
-    cout.tie(nullptr)
-
-#define PB push_back
-#define MP make_pair
-
-void READ_WRITE_FILE() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
-}
+#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
+#define READ_WRITE_FILE freopen("in.txt", "r", stdin); freopen("out.txt", "w", stdout)
 
 int main() {
     FAST_IO;
-    READ_WRITE_FILE();
+    READ_WRITE_FILE;
 
     int tc;
     cin >> tc;
@@ -38,8 +21,8 @@ int main() {
             mp[x]++;
         }
 
-        for (auto it : mp) {
-            cout << it.first << " " << it.second << endl;
+        for (auto [F, S]: mp) {
+            cout << F << " " << S << endl;
         }
 
         cout << endl;

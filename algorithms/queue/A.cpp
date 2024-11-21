@@ -6,8 +6,6 @@
 #include <set>
 #include <sstream>
 #include <stack>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 using namespace std;
@@ -32,8 +30,8 @@ int bin2Dec(string s) {
     int sum = 0;
     int size = s.size();
     for (int i = 0; i < size; i++) {
-        int bit = s[size - i - 1] - '0';   // Convert char to int
-        sum += bit * (1 << i);             // Use bit shifting for powers of 2
+        int bit = s[size - i - 1] - '0'; // Convert char to int
+        sum += bit * (1 << i); // Use bit shifting for powers of 2
     }
     return sum;
 }
@@ -67,7 +65,7 @@ int main() {
             ans.push_back(s2);
         }
 
-        for (auto it : ans) {
+        for (auto it: ans) {
             cout << it << " ";
         }
 
