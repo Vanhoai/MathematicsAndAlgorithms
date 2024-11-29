@@ -5,7 +5,6 @@
 #include "complex.h"
 
 #include <cmath>
-#include <iostream>
 
 Complex create_complex(const double real, const double imagine) {
     const Complex complex = {real, imagine};

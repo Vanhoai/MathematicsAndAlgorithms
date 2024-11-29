@@ -1,9 +1,5 @@
-#include <bitset>
 #include <iostream>
 #include <map>
-#include <queue>
-#include <stack>
-#include <vector>
 using namespace std;
 
 #define FAST_IO                                                                \
@@ -12,10 +8,10 @@ using namespace std;
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("in.txt", "r", stdin);
+        freopen("out.txt", "w", stdout);
+    #endif
 }
 
 int main_dev() {

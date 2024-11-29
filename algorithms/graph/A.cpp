@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <bitset>
 #include <iostream>
-#include <sstream>
-#include <string>
 #include <vector>
 using namespace std;
 
@@ -16,10 +12,10 @@ typedef vector<pi> vii;
     cout.tie(nullptr)
 
 void READ_WRITE_FILE() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("in.txt", "r", stdin);
+        freopen("out.txt", "w", stdout);
+    #endif
 }
 
 int n, m;
