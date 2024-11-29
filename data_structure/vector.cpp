@@ -2,8 +2,6 @@
 // Created by Aurora Study on 15/10/24.
 //
 
-#include "vector.h"
-#include <iostream>
 #include <stdexcept>
 
 template <typename T> class Vector {
