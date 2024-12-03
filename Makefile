@@ -1,5 +1,2 @@
 run:
-	g++ -o main main.cpp && ./main
-
-run:
-	g++ -o main  main.cpp && ./main
+	g++ -std=c++11 -o main main.cpp && ./main
