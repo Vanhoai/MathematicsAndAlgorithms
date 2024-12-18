@@ -7,48 +7,47 @@
 
 using namespace std;
 
-vector<int> a;
-std::mutex mtx;
+#define FAST_IO                \
+  ios::sync_with_stdio(false); \
+  cin.tie(nullptr);            \
+  cout.tie(nullptr)
+#define READ_WRITE_FILE          \
+  freopen("in.txt", "r", stdin); \
+  freopen("out.txt", "w", stdout)
 
-void addToArray() {
-    for (int i = 0; i < 1000; ++i) {
-        int randomNumber = rand() % 100;
-        {
-            std::lock_guard<std::mutex> lock(mtx);
-            a.push_back(randomNumber);
-            cout << "Thread 1: Added " << randomNumber
-                 << " to array. Current size: " << a.size() << endl;
-        }
-    }
-}
+int solve(const string &s) {
+  const int n = s.length();
+  vector<vector<int>> dp(n, vector<int>(n, 0));
 
-void removeFromArray() {
-    for (int i = 0; i < 1000; ++i) {
-        {
-            std::lock_guard<std::mutex> lock(mtx);
-            if (!a.empty()) {
-                int removed = a.back();
-                a.pop_back();
-                cout << "Thread 2: Removed " << removed
-                     << " from array. Current size: " << a.size() << endl;
-            } else {
-                cout << "Thread 2: Nothing in array a\n";
-            }
-        }
+  for (int i = 0; i < n; ++i)
+    dp[i][i] = 1;
+
+  for (int len = 2; len <= n; ++len) {
+    for (int i = 0; i < n - len + 1; ++i) {
+      int j = i + len - 1;
+      if (s[i] == s[j]) {
+        dp[i][j] = dp[i + 1][j - 1] + 2;
+      } else {
+        dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+      }
     }
+  }
+
+  return dp[0][n - 1];
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
+  FAST_IO;
+  READ_WRITE_FILE;
 
-    srand(time(0));
+  int TC;
+  cin >> TC;
+  cin.ignore();
+  while (TC--) {
+    string s;
+    getline(cin, s);
+    cout << solve(s) << endl;
+  }
 
-    thread t1(addToArray);
-    thread t2(removeFromArray);
-
-    t1.join();
-    t2.join();
-
-    return 0;
+  return 0;
 }
