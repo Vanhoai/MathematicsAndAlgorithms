@@ -1,5 +1,4 @@
 #include <iostream>
-#include <queue>
 #include <stack>
 #include <string>
 #include <vector>
@@ -27,7 +26,7 @@ void input() {
 
 void dfs(int u) {
     visited[u] = true;
-    for (int v: adj[u]) {
+    for (int v : adj[u]) {
         if (!visited[v]) {
             dfs(v);
         }
@@ -39,7 +38,7 @@ void dfs(int u) {
 void dfs_solve(int u) {
     visited[u] = true;
     ans += to_string(u) + " ";
-    for (int v: reverse_adj[u]) {
+    for (int v : reverse_adj[u]) {
         if (!visited[v]) {
             dfs_solve(v);
         }
@@ -62,7 +61,7 @@ void strong_connected_component() {
         if (!visited[u]) {
             ans += to_string(u) + " ";
             visited[u] = true;
-            for (int v: reverse_adj[u]) {
+            for (int v : reverse_adj[u]) {
                 if (!visited[v]) {
                     dfs_solve(v);
                 }
@@ -86,8 +85,9 @@ void strong_connected_component() {
 
 int main_graph() {
     ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
-    
+    cin.tie(0);
+    cout.tie(0);
+
     input();
     strong_connected_component();
 
