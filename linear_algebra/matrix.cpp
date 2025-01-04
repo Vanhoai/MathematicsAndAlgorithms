@@ -173,6 +173,33 @@ struct Matrix {
 
         return det;
     }
+
+    Matrix power(int n) const {
+        if (rows != cols)
+            throw runtime_error("Matrix must be square to calculate power.");
+
+        if (n == 0) {
+            Matrix identity(rows, rows);
+            for (int i = 0; i < rows; ++i) {
+                identity.data[i][i] = 1.0;
+            }
+            return identity;
+        }
+
+        if (n < 0) {
+            Matrix inverseMatrix = this->inverse();
+            return inverseMatrix.power(-n);
+        }
+
+        Matrix result = *this;
+        Matrix base = *this;
+
+        for (int i = 1; i < n; ++i) {
+            result = result * base;
+        }
+
+        return result;
+    }
 };
 
 Matrix operator*(double scalar, const Matrix &matrix) {
