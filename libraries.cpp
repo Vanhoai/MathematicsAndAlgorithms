@@ -1,18 +1,3 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
-#include <string>
 #include <vector>
 using namespace std;
 
@@ -23,7 +8,7 @@ typedef vector<int> vi;      // Alias for vector of integers
 typedef vector<ll> vll;      // Alias for vector of long long
 typedef vector<pi> vii;      // Alias for vector of pairs
 typedef vector<vi> vvi;      // Alias for vector of vectors
-typedef vector<vector<double>> vvd;
+typedef vector<vector<double> > vvd;
 
 // Macros for common operations
 #define F  first       // Short for accessing first element of pair
