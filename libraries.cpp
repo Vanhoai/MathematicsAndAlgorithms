@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -8,7 +9,7 @@ typedef vector<int> vi;      // Alias for vector of integers
 typedef vector<ll> vll;      // Alias for vector of long long
 typedef vector<pi> vii;      // Alias for vector of pairs
 typedef vector<vi> vvi;      // Alias for vector of vectors
-typedef vector<vector<double> > vvd;
+typedef vector<vector<double>> vvd;
 
 // Macros for common operations
 #define F  first       // Short for accessing first element of pair
@@ -38,23 +39,12 @@ typedef vector<vector<double> > vvd;
 #define SZ(x)       ((int) (x).size())        // Returns size of container x
 #define IS_PRIME(x) isPrime(x)                // Checks if x is prime
 
-// Fast I/O
-#define FAST_IO                                                                \
-    ios::sync_with_stdio(false);                                               \
-    cin.tie(nullptr);                                                          \
-    cout.tie(nullptr)
+#define IOS ios::sync_with_stdio(false), cin.tie(0)
+#define IO  freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 
-#define READ_WRITE_FILE read
 // Functions
 int gcd(int a, int b) {
     if (b == 0)
         return a;
     return gcd(b, a % b);
-}
-
-void read() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
 }
