@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
-#include <vector>
 #include <stack>
+#include <vector>
 using namespace std;
 
 struct Edge {
@@ -15,7 +15,6 @@ int parent[1001];
 int sized[1001];
 
 // Disjoint Set Union Find
-
 void make_set() {
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
@@ -24,17 +23,20 @@ void make_set() {
 }
 
 int find(int u) {
-    if (u == parent[u]) return u;
+    if (u == parent[u])
+        return u;
     return parent[u] = find(parent[u]);
 }
 
 bool Union(int a, int b) {
     a = find(a);
     b = find(b);
-    
-    if (a == b) return false;
-    if (sized[a] < sized[b]) swap(a, b);
-    
+
+    if (a == b)
+        return false;
+    if (sized[a] < sized[b])
+        swap(a, b);
+
     parent[b] = a;
     sized[a] += sized[b];
     return true;
@@ -50,9 +52,7 @@ void input() {
     }
 }
 
-bool comparator(Edge a, Edge b) {
-    return a.w < b.w;
-}
+bool comparator(Edge a, Edge b) { return a.w < b.w; }
 
 void solve() {
     sort(edges.begin(), edges.end(), comparator);
@@ -79,10 +79,11 @@ void solve() {
 int main_dev() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    #ifndef ONLINE_JUDGE
-        freopen("./in.txt", "r", stdin);
-        freopen("./out.txt", "w", stdout);
-    #endif
+
+#ifndef ONLINE_JUDGE
+    freopen("./in.txt", "r", stdin);
+    freopen("./out.txt", "w", stdout);
+#endif
 
     input();
     make_set();

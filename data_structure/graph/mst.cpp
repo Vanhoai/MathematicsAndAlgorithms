@@ -6,12 +6,11 @@ typedef vector<int> vi;
 typedef pair<int, int> pi;
 typedef vector<pi> vii;
 
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair
+#define F    first
+#define S    second
+#define PB   push_back
+#define MP   make_pair
 #define maxn 1001
-
 
 struct Edge {
     int u, v, w;

@@ -15,10 +15,10 @@ using namespace std;
 #define READ_WRITE_FILE read
 
 void read() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 const int MAXN = 1001;
@@ -59,9 +59,10 @@ int query(int n, int L, int R, int i, int j) {
     if (j <= m) {
         return query(n << 1, L, m, i, j);
     } else if (i > m) {
-        return query(n << 1 | 1, m + 1, R, i, j);   
+        return query(n << 1 | 1, m + 1, R, i, j);
     } else {
-        return query(n << 1, L, m, i, m) + query(n << 1 | 1, m + 1, R, m + 1, j);
+        return query(n << 1, L, m, i, m) +
+               query(n << 1 | 1, m + 1, R, m + 1, j);
     }
 }
 
@@ -69,16 +70,19 @@ int main_dev() {
     FAST_IO;
     READ_WRITE_FILE();
 
-    int n; cin >> n;
+    int n;
+    cin >> n;
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
     }
 
     build(1, 1, n);
 
-    int q; cin >> q;
+    int q;
+    cin >> q;
     while (q--) {
-        int l, r; cin >> l >> r;
+        int l, r;
+        cin >> l >> r;
         cout << query(1, 1, n, l, r) << endl;
     }
 

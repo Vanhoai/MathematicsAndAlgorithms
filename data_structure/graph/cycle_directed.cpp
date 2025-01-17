@@ -12,7 +12,7 @@ bool dfs(int u) {
     visited[u] = true;
     processed[u] = true;
 
-    for (int v: adj[u]) {
+    for (int v : adj[u]) {
         if (!visited[v]) {
             if (dfs(v)) {
                 return true;
@@ -51,7 +51,7 @@ bool sort() {
     queue<int> q;
 
     for (int i = 1; i <= n; i++) {
-        for (int v: adj[i]) {
+        for (int v : adj[i]) {
             in_degree[v]++;
         }
     }
@@ -68,7 +68,7 @@ bool sort() {
         cout << "u: " << u << endl;
         q.pop();
         count++;
-        for (int v: adj[u]) {
+        for (int v : adj[u]) {
             in_degree[v]--;
             if (in_degree[v] == 0) {
                 q.push(v);

@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 using namespace std;
 
 struct Edge {
@@ -9,7 +9,7 @@ struct Edge {
 };
 
 int n, m;
-vector<pair<int, int> > adj[1001];
+vector<pair<int, int>> adj[1001];
 bool used[1001];
 int parent[1001], d[1001];
 
@@ -23,11 +23,14 @@ void input() {
     }
 
     memset(used, false, sizeof(used));
-    for (int i = 1; i <= n; i++) d[i] = INT_MAX;
+    for (int i = 1; i <= n; i++)
+        d[i] = INT_MAX;
 }
 
 void prime(int u) {
-    priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > q;
+    priority_queue<pair<int, int>, vector<pair<int, int>>,
+                   greater<pair<int, int>>>
+        q;
     vector<Edge> mst;
     int res = 0;
     q.push(make_pair(0, u));
@@ -39,7 +42,8 @@ void prime(int u) {
         int x = top.second;
         int w = top.first;
 
-        if (used[x]) continue;
+        if (used[x])
+            continue;
         used[x] = true;
         res += w;
         if (u != x) {
@@ -69,10 +73,10 @@ void prime(int u) {
 int main_graph() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 
     input();
     prime(1);

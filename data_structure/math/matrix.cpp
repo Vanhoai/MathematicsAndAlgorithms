@@ -16,7 +16,8 @@ double calculateDeterminant(vvd matrix, int n) {
                     break;
                 }
             }
-            if (!swapped) return 0;
+            if (!swapped)
+                return 0;
         }
 
         FOR(j, i + 1, n - 1) {
@@ -24,27 +25,22 @@ double calculateDeterminant(vvd matrix, int n) {
             for (int k = i; k < n; k++)
                 matrix[j][k] -= factor * matrix[i][k];
         }
-        
+
         determinant *= matrix[i][i];
     }
     return determinant;
 }
 
-
 int main_dev() {
-    FAST_IO;
-    READ_WRITE_FILE();
-
     int n;
     cin >> n;
     vvd matrix(n, vector<double>(n));
 
     REP(i, n)
-        REP(j, n) cin >> matrix[i][j];
+    REP(j, n) cin >> matrix[i][j];
 
     double determinant = calculateDeterminant(matrix, n);
     cout << "Determinant: " << determinant << endl;
-
 
     return 0;
 }
