@@ -1,21 +1,31 @@
-#include "./data_abstraction/template/Template.h"
 #include "./libraries.cpp"
+#include <iostream>
 using namespace std;
 
 int main() {
     IOS;
     IO;
 
-    Bag<int> A;
-    Bag<char> B;
+    int n;
+    cin >> n;
+    int a[n];
 
-    for (int i = 92; i <= 122; i++) {
-        A.insert(i);
-        B.insert(i);
+    for (int &x : a)
+        cin >> x;
+
+    int s[n];
+    s[0] = a[0];
+    int ans = a[0];
+    for (int i = 1; i < n; i++) {
+        if (s[i - 1] > 0) {
+            s[i] = s[i - 1] + a[i];
+        } else {
+            s[i] = a[i];
+        }
+
+        ans = max(ans, s[i]);
     }
 
-    cout << A << endl;
-    cout << B << endl;
-
+    cout << ans << endl;
     return 0;
 }
