@@ -1,30 +1,9 @@
-#include <iostream>
+#include "bits/stdc++.h"
 using namespace std;
 
-// 6
-// -2 11 -4 13 -5 2
-// ans: 20
-
 int main() {
-    int n;
-    cin >> n;
-    int a[n];
-    for (int &x : a)
-        cin >> x;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    int ans = INT_MIN;
-
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < n; j++) {
-            int sum = 0;
-            for (int k = i; k <= j; k++) {
-                sum += a[k];
-            }
-
-            ans = max(ans, sum);
-        }
-    }
-
-    cout << ans << endl;
     return 0;
 }
