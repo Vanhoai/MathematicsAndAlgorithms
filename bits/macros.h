@@ -1,5 +1,4 @@
-#include "bits/stdc++.h"
-using namespace std;
+#include "./stdc++.h"
 
 #define ms(s, n)         memset(s, n, sizeof(s))
 #define all(a)           a.begin(), a.end()
