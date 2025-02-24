@@ -1,25 +1,21 @@
 #include "./stdc++.h"
 
-#define ms(s, n)         memset(s, n, sizeof(s))
-#define all(a)           a.begin(), a.end()
-#define present(t, x)    (t.find(x) != t.end())
-#define sz(a)            int((a).size())
-#define FOR(i, a, b)     for (int i = (a); i < (b); ++i)
-#define INVERSE(i, a, b) for (int i = (a); i >= b; --i)
-#define REP(i, a, b)     for (int i = (a); i <= (b); ++i)
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= (b); --i)
 
 #define PB push_back
-#define PF push_front
 #define MP make_pair
 #define F  first
 #define S  second
 
 typedef long long ll;
-typedef unsigned long long ull;
-typedef long double ld;
 typedef std::pair<int, int> pi;
 typedef std::vector<int> vi;
 typedef std::vector<pi> vii;
+typedef std::vector<vi> vvi;
 
 const int MOD = (int) 1e9 + 7;
 const int INF = (int) 1e9 + 1;

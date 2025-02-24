@@ -1,1 +1,22 @@
-1 1 1 7 6 5 4 4
+1. T & V -> O
+2. R & O -> F
+3. U & N -> H
+4. O & G -> U
+5. N & O -> B
+6. G & C -> I
+7. D & M -> P
+8. A & I -> I
+9. I & N -> V
+10. H & K -> R
+11. O & I -> W
+12. C & E -> G
+13. Q & N -> D
+14. U & V -> P
+15. O & O -> C
+16. C & N -> P
+17. G & G -> M
+18. I & O -> W
+19. A & C -> C
+TRUONGDAIHOCQUOCGIA
+VONGOCMINKIENVONGOC
+OFHUBIPIVRWGDPCPMWC
