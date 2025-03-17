@@ -1,16 +1,34 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-const int N = 1001;
+const int N = 10000;
+int n, a[N + 1][N + 1];
 vector<int> adj[N + 1];
-bool visited[N + 1];
 
-void dfs(int u) {
-    visited[u] = true;
-    for (int v : adj[u]) {
-        if (!visited[v]) {
-            dfs(v);
+void enter() {
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            cin >> a[i][j];
         }
+    }
+}
+
+void convert() {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (a[i][j] == 1) {
+                adj[i].push_back(j);
+            }
+        }
+    }
+
+    for (int i = 1; i <= n; i++) {
+        cout << i << ": ";
+        for (int j : adj[i]) {
+            cout << j << " ";
+        }
+        cout << endl;
     }
 }
 
@@ -21,6 +39,9 @@ int main() {
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+
+    enter();
+    convert();
 
     return 0;
 }
