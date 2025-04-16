@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 const int MOD = 1e9 + 7;
@@ -16,10 +16,12 @@ vvi multiply(vvi &a, vvi &b, int n) {
 
 vvi matrixExponentiation(vvi base, int k, int n) {
     vvi res(n, vector<int>(n, 0));
-    for (int i = 0; i < n; i++) res[i][i] = 1;
+    for (int i = 0; i < n; i++)
+        res[i][i] = 1;
 
     while (k > 0) {
-        if (k % 2 == 1) res = multiply(res, base, n);
+        if (k % 2 == 1)
+            res = multiply(res, base, n);
         base = multiply(base, base, n);
         k /= 2;
     }
@@ -35,7 +37,8 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int n, k; cin >> n >> k;
+    int n, k;
+    cin >> n >> k;
     vvi adj(n, vector<int>(n));
     FOR(i, 0, n - 1) FOR(j, 0, n - 1) cin >> adj[i][j];
 
@@ -47,10 +50,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-

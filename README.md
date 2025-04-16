@@ -1,4 +1,4 @@
-# 🚀 Advanced Algorithms Collection in C++
+# 🚀 Math & Algorithms in C++ for Everyone
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/cpp-algorithms)
 ![Language](https://img.shields.io/badge/language-C%2B%2B-blue)

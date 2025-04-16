@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 /**
@@ -38,15 +38,15 @@ void solve_min(int a[], int n, int k) {
     for (int i = k; i < n; i++) {
         // Add minimum element from current window to result
         cout << a[dq.front()] << " ";
-        
+
         // Remove elements outside current window
         while (!dq.empty() && dq.front() <= i - k)
             dq.pop_front();
-        
+
         // Remove elements greater than current element
         while (!dq.empty() && a[dq.back()] > a[i])
             dq.pop_back();
-        
+
         dq.push_back(i);
     }
 
@@ -64,10 +64,12 @@ int main() {
     int TC;
     cin >> TC;
     while (TC--) {
-        int n, k; cin >> n >> k;
+        int n, k;
+        cin >> n >> k;
 
         int a[n];
-        for (int i = 0; i < n; i++) cin >> a[i];
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
         solve_min(a, n, k);
     }
 

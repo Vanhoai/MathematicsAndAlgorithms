@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b, int &x, int &y) {
@@ -16,12 +16,14 @@ int gcd(int a, int b, int &x, int &y) {
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int a, b; cin >> a >> b;
+    int a, b;
+    cin >> a >> b;
     int x, y;
     int d = gcd(a, b, x, y);
     cout << d << endl;

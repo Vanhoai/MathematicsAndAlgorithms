@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 const int MOD = 1e9 + 7;
@@ -18,9 +18,9 @@ struct Matrix {
 
 Matrix power(Matrix a, long long n) {
     Matrix res = {1, 0, 0, 1};
-    
+
     while (n > 0) {
-        if (n & 1) 
+        if (n & 1)
             res = res * a;
 
         a = a * a;
@@ -31,7 +31,8 @@ Matrix power(Matrix a, long long n) {
 }
 
 long long fibonacci(long long n) {
-    if (n == 0) return 0;
+    if (n == 0)
+        return 0;
     Matrix F = {1, 1, 1, 0};
     Matrix res = power(F, n - 1);
     return res.m[0][0];
@@ -39,12 +40,14 @@ long long fibonacci(long long n) {
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int n; cin >> n;
+    int n;
+    cin >> n;
     cout << fibonacci(n) << endl;
 
     return 0;

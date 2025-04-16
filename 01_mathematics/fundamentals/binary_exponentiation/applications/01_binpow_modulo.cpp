@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int MOD = 1e9 + 7;

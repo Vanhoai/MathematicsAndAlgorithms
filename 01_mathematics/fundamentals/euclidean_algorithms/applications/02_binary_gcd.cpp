@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int binary_gcd(int a, int b) {
@@ -13,19 +13,20 @@ int binary_gcd(int a, int b) {
             swap(a, b);
         b -= a;
     } while (b);
-    
-    return a << shift; 
-}
 
+    return a << shift;
+}
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int a, b; cin >> a >> b;
+    int a, b;
+    cin >> a >> b;
     cout << binary_gcd(a, b) << endl;
 
     return 0;
