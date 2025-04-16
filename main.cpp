@@ -1,36 +1,29 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-const int N = 10000;
-int n, a[N + 1][N + 1];
-vector<int> adj[N + 1];
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
 
-void enter() {
-    cin >> n;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            cin >> a[i][j];
-        }
-    }
-}
+#define PB push_back
+#define MP make_pair
+#define F  first
+#define S  second
 
-void convert() {
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            if (a[i][j] == 1) {
-                adj[i].push_back(j);
-            }
-        }
-    }
+typedef long long ll;
+typedef std::pair<int, int> pi;
+typedef std::vector<int> vi;
+typedef std::vector<pi> vii;
+typedef std::vector<vi> vvi;
 
-    for (int i = 1; i <= n; i++) {
-        cout << i << ": ";
-        for (int j : adj[i]) {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
-}
+const int MOD = (int) 1e9 + 7;
+const int INF = (int) 1e9 + 1;
+const int DEG = (int) 1001;
+
+inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 int main() {
     ios::sync_with_stdio(false);
@@ -39,9 +32,6 @@ int main() {
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-
-    enter();
-    convert();
 
     return 0;
 }
